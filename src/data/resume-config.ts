@@ -35,7 +35,7 @@ export const resumeConfig: ResumeConfig = {
 
   // ===== CONTACT =====
   contact: [
-    { type: 'website', label: { fr: 'beedigoua.github.io', en: 'beedigoua.github.io' }, href: 'https://beedigoua.github.io' },
+    { type: 'website', label: { fr: 'beedigoua.github.io/CV_GOUA', en: 'beedigoua.github.io/CV_GOUA' }, href: 'https://beedigoua.github.io/CV_GOUA/' },
     { type: 'github', label: { fr: 'beedigoua', en: 'beedigoua' }, href: 'https://github.com/beedigoua' },
     { type: 'linkedin', label: { fr: 'Goua Beedi', en: 'Goua Beedi' }, href: 'https://linkedin.com/in/gouabeedi' },
     { type: 'email', label: { fr: 'gouabeedi@gmail.com', en: 'gouabeedi@gmail.com' } },
@@ -305,7 +305,7 @@ export const resumeConfig: ResumeConfig = {
       title: { fr: 'Portfolio', en: 'Portfolio' },
       description: { fr: 'Site personnel présentant mes projets.', en: 'Personal site showcasing my projects.' },
       techs: ['React', 'TypeScript', 'Vite'],
-      url: 'https://beedigoua.github.io',
+      url: 'https://beedigoua.github.io/CV_GOUA/',
       github: 'https://github.com/beedigoua/beedigoua.github.io',
     },
   ],
