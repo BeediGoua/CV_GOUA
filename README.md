@@ -11,8 +11,7 @@ Ce projet est un CV interactif et portfolio bilingue (Français/Anglais) conçu 
 - **Grille de Projets Intelligente** : Affichage en matrice 2x2 avec expansion fluide pour une lecture détaillée.
 - **Compétences Interactives** : Section structurée par domaines (Stats, ML, DL, IA Générative) avec détails expansibles.
 - **Data-Driven** : Tout le contenu est piloté par un seul fichier de configuration : `src/data/resume-config.ts`.
-- **Optimisé SEO & ATS** : Injection des métadonnées JSON-LD et rendu sémantique pour une visibilité maximale auprès des moteurs de recherche et des recruteurs.
-- **PDF Export** : Liens directs vers les versions PDF (FR/EN) synchronisées.
+- **PDF Export** : Liens directs vers les versions PDF (FR/EN).
 
 ## Stack Technique
 
