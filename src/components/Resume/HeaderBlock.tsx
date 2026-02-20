@@ -44,13 +44,6 @@ export function HeaderBlock() {
         </p>
       )}
 
-      {/* Profil détaillé (profile) */}
-      {personal.profile && (
-        <p className="text-sm text-resume-text">
-          {resolve(personal.profile)}
-        </p>
-      )}
-
       <div className="flex flex-wrap gap-4 mt-2">
         {contact.map((item: ContactItemType) => (
           <ContactItem

@@ -1,31 +1,25 @@
-import { assetUrl } from '../../lib/utils'
-
 interface EducationItemProps {
   school: string
   degree: string
   specialty?: string
   period?: string
-  logo?: string
 }
 
-export function EducationItem({ school, degree, specialty, period, logo }: EducationItemProps) {
+export function EducationItem({ school, degree, specialty, period }: EducationItemProps) {
   return (
-    <div className="flex items-start gap-4">
-      {logo && (
-        <div className="w-14 h-14 rounded-lg overflow-hidden flex-shrink-0">
-          <img src={assetUrl(logo)} alt={`${school} logo`} className="object-contain w-full h-full" loading="lazy" />
-        </div>
-      )}
-      <div>
-        <p className="text-base font-semibold text-resume-text">{school}</p>
-        <p className="text-sm text-resume-text-secondary">{degree}</p>
-        {specialty && (
-          <p className="text-sm text-resume-primary">{specialty}</p>
-        )}
+    <div className="flex flex-col gap-1">
+      <div className="flex items-center justify-between gap-2">
+        <p className="text-xs font-bold text-resume-text uppercase tracking-tight">{school}</p>
         {period && (
-          <p className="text-xs text-resume-text-secondary mt-0.5">{period}</p>
+          <p className="text-xs text-resume-primary font-bold">{period}</p>
         )}
       </div>
+      <p className="text-xs text-resume-text-secondary">
+        {degree}
+        {specialty && (
+          <span className="text-resume-primary font-medium italic ml-2">— {specialty}</span>
+        )}
+      </p>
     </div>
   )
 }

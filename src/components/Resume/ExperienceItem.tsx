@@ -20,6 +20,8 @@ interface ExperienceItemProps {
     context: string
     tasks?: string[]
     training?: string[]
+    architecture?: string
+    impact?: string
     env: string
   }
   subItem?: { title: string; description: string }
@@ -29,7 +31,11 @@ interface ExperienceItemProps {
     training?: string
     techEnv: string
     technologies: string
+    architecture: string
+    impact: string
+    viewDetails?: string
   }
+  resolve?: (val: any) => string
   isHighlighted?: boolean
 }
 
@@ -63,7 +69,6 @@ export function ExperienceItem({
       className="relative"
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
-      whileHover={isHighlighted ? { scale: 1.02 } : {}}
       transition={{ duration: 0.2 }}
     >
       <button
@@ -73,45 +78,72 @@ export function ExperienceItem({
       >
         <div
           className={cn(
-            'flex items-start gap-4 py-3 rounded-lg px-3 -mx-3 transition-all duration-300',
+            'flex items-start gap-4 py-4 rounded-lg px-4 -mx-4 transition-all duration-300 relative overflow-hidden',
             isHighlighted
-              ? 'border-2 border-resume-primary/30 bg-resume-primary/5 hover:border-resume-primary/50 hover:shadow-md'
+              ? 'bg-resume-primary/5 hover:shadow-md'
               : 'hover:bg-resume-primary/5'
           )}
         >
-          <div className="w-20 flex-shrink-0">
-            <span className="text-sm font-bold text-resume-primary">{year}</span>
-          </div>
-
-          <div className="flex-1 min-w-0 relative">
-            {details && (
-              <motion.div
-                animate={{ rotate: expanded ? 180 : 0 }}
-                className="absolute top-0 right-0"
-              >
-                <ChevronDownIcon className="w-4 h-4 text-resume-primary" />
-              </motion.div>
+          {/* Vertical Accent */}
+          <div
+            className={cn(
+              "absolute left-0 top-1/2 -translate-y-1/2 w-1 h-2/3 rounded-full transition-all duration-300",
+              isHighlighted ? "bg-resume-primary scale-y-100" : "bg-resume-primary/20 scale-y-50 group-hover:scale-y-75 group-hover:bg-resume-primary/50"
             )}
-            <div className="flex items-center gap-2 flex-wrap pr-6 md:pr-0">
-              <h3 className="text-sm font-semibold text-resume-text">{company}</h3>
-              {type && (
-                <span className="text-xs px-2 py-0.5 bg-resume-primary/10 text-resume-primary rounded">
-                  {type}
-                </span>
-              )}
-            </div>
-            <p className="text-xs text-resume-text-secondary mt-0.5">{role}</p>
-            <p className="text-xs text-resume-text-secondary/80 mt-1 line-clamp-2">{description}</p>
+          />
 
-            <div className="flex flex-wrap gap-1.5 mt-2">
+          <div className="flex-1 min-w-0 ml-2">
+            <div className="flex flex-col md:flex-row md:items-center justify-between gap-1 mb-1">
+              <div className="flex items-center gap-2">
+                <h3 className="text-xs font-bold text-resume-text uppercase tracking-wide">
+                  {company}
+                </h3>
+                {type && (
+                  <span className="text-[10px] uppercase font-bold px-1.5 py-0.5 bg-resume-primary/10 text-resume-primary rounded tracking-tighter">
+                    {type}
+                  </span>
+                )}
+              </div>
+              <span className="text-xs font-bold text-resume-primary order-first md:order-last">
+                {year}
+              </span>
+            </div>
+
+            <p className="text-xs font-medium text-resume-text-secondary mb-1.5">
+              {role}
+            </p>
+
+            <p className="text-xs text-resume-text-secondary/90 leading-relaxed mb-3">
+              {description}
+            </p>
+
+            <div className="flex flex-wrap items-center gap-1.5 min-h-[24px]">
               {techs.map((tech) => (
                 <TechBadge key={tech} tech={tech} />
               ))}
+
+              {details && (
+                <div className="ml-auto md:ml-2">
+                  <div
+                    className={cn(
+                      "flex items-center gap-1 px-2 py-0.5 rounded-full text-[9px] font-black uppercase tracking-[0.1em] border transition-all duration-300",
+                      expanded
+                        ? "bg-resume-primary text-white border-resume-primary"
+                        : "bg-resume-primary/5 text-resume-primary border-resume-primary/20 hover:border-resume-primary/50 group-hover:bg-resume-primary/10"
+                    )}
+                  >
+                    <span>{labels.viewDetails ? labels.viewDetails : 'Détails'}</span>
+                    <motion.div animate={{ rotate: expanded ? 180 : 0 }}>
+                      <ChevronDownIcon className="w-2.5 h-2.5" />
+                    </motion.div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {subItem && (
-              <div className="mt-3 pl-3 border-l-2 border-resume-primary/20">
-                <p className="text-xs font-medium text-resume-text">{subItem.title}</p>
+              <div className="mt-3 pl-3 border-l border-resume-primary/20">
+                <p className="text-[11px] font-bold text-resume-text uppercase tracking-tight">{subItem.title}</p>
                 <p className="text-xs text-resume-text-secondary">{subItem.description}</p>
               </div>
             )}
@@ -128,11 +160,13 @@ export function ExperienceItem({
               exit={{ opacity: 0, height: 0 }}
               className="overflow-hidden"
             >
-              <div className="ml-24 mt-2 mb-4 p-4 bg-resume-bg rounded-lg border border-resume-primary/20">
+              <div className="ml-8 mt-2 mb-6 p-5 bg-resume-primary/5 rounded-xl border border-resume-primary/10 shadow-inner">
                 <ExperienceDetailsContent
                   context={details.context}
                   tasks={details.tasks}
                   training={details.training}
+                  architecture={details.architecture}
+                  impact={details.impact}
                   env={details.env}
                   labels={labels}
                   variant="inline"
@@ -159,6 +193,8 @@ export function ExperienceItem({
             context={details.context}
             tasks={details.tasks}
             training={details.training}
+            architecture={details.architecture}
+            impact={details.impact}
             env={details.env}
             techs={techs}
             description={description}

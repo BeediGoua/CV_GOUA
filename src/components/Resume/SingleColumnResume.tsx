@@ -4,10 +4,12 @@ import { resumeConfig } from '../../data/resume-config'
 import { HeaderBlock } from './HeaderBlock'
 import { Section } from './Section'
 import { SkillCategory } from './SkillCategory'
+import { SkillTextItem } from './SkillTextItem'
 import { ExperienceItem } from './ExperienceItem'
 import { ProjectItem } from './ProjectItem'
 import { EducationItem } from './EducationItem'
 import { TechBadge } from './TechBadge'
+import { cn } from '../../lib/utils'
 import type { LocalizedString, SkillCategory as SkillCategoryType, Experience, Project, Education } from '../../data/types'
 
 /**
@@ -45,67 +47,23 @@ export function SingleColumnResume() {
   const profileSectionTitle = resolve({ fr: 'PROFIL', en: 'PROFILE' })
 
   return (
-    <div className="w-full max-w-3xl mx-auto px-4 py-8">
+    <div className="w-full max-w-[860px] mx-auto px-6 py-12 md:py-20">
       {/* En-tête : nom, titre, actions, contact */}
       <HeaderBlock />
 
       {/* Section Profil */}
       {personal.profile && (
         <Section title={profileSectionTitle}>
-          <p className="text-sm text-resume-text whitespace-pre-line">
+          <p className="text-sm text-resume-text-secondary leading-relaxed max-w-2xl">
             {resolve(personal.profile)}
           </p>
-        </Section>
-      )}
-
-      {/* Section Compétences */}
-      {skills && skills.length > 0 && (
-        <Section title={resolve(labels.sections.skills)}>
-          <div className="space-y-4">
-            {skills.map((category: SkillCategoryType, i: number) => (
-              <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
-                {category.type === 'badges' && (
-                  <div className="flex flex-wrap gap-1.5">
-                    {category.items.map((item: any) => {
-                      const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
-                      return <TechBadge key={techName} tech={techName} color={item.color} />
-                    })}
-                  </div>
-                )}
-                {category.type === 'text' && (
-                  <p className="text-xs text-resume-text-secondary">
-                    {category.items
-                      .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
-                      .join(', ')}
-                  </p>
-                )}
-                {category.type === 'languages' && (
-                  <div className="flex items-center gap-3 text-sm flex-wrap">
-                    {category.items.map((item: any, j: number) => {
-                      const name = typeof item.name === 'string' ? item.name : resolve(item.name)
-                      return (
-                        <span key={`${name}-${j}`} className="flex items-center gap-1">
-                          <span className="text-resume-text-secondary">
-                            {name} {item.level ? resolve(item.level) : ''}
-                            {item.details && (
-                              <span className="text-xs opacity-70 ml-1">{resolve(item.details)}</span>
-                            )}
-                          </span>
-                        </span>
-                      )
-                    })}
-                  </div>
-                )}
-              </SkillCategory>
-            ))}
-          </div>
         </Section>
       )}
 
       {/* Section Expériences */}
       {experiences && experiences.length > 0 && (
         <Section title={resolve(labels.sections.experience)}>
-          <div className="space-y-2">
+          <div className="space-y-4">
             {experiences.map((exp: Experience) => (
               <ExperienceItem
                 key={exp.id}
@@ -114,7 +72,7 @@ export function SingleColumnResume() {
                 type={exp.type ? resolve(exp.type) : undefined}
                 role={resolve(exp.role)}
                 description={resolve(exp.description)}
-                techs={exp.techs}
+                techs={exp.techs as string[]}
                 expanded={expandedExp === exp.id}
                 onToggle={() => toggleExp(exp.id)}
                 details={
@@ -123,6 +81,8 @@ export function SingleColumnResume() {
                       context: resolve(exp.details.context),
                       tasks: exp.details.tasks ? resolveArray(exp.details.tasks) : undefined,
                       training: exp.details.training ? resolveArray(exp.details.training) : undefined,
+                      architecture: exp.details.architecture ? resolve(exp.details.architecture) : undefined,
+                      impact: exp.details.impact ? resolve(exp.details.impact) : undefined,
                       env: resolve(exp.details.env),
                     }
                     : undefined
@@ -135,7 +95,13 @@ export function SingleColumnResume() {
                     }
                     : undefined
                 }
-                labels={experienceLabels}
+                labels={{
+                  ...experienceLabels,
+                  architecture: resolve({ fr: 'Architecture', en: 'Architecture' }),
+                  impact: resolve({ fr: 'Impact', en: 'Impact' }),
+                  viewDetails: resolve(labels.actions.viewDetails ?? { fr: 'Détails', en: 'Details' }),
+                }}
+                resolve={resolve}
                 isHighlighted={exp.isHighlighted}
               />
             ))}
@@ -146,18 +112,96 @@ export function SingleColumnResume() {
       {/* Section Projets */}
       {projects && projects.length > 0 && labels.sections.projects && (
         <Section title={resolve(labels.sections.projects)}>
-          <div className="space-y-1">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-2">
             {projects.map((project: Project) => (
-              <ProjectItem
+              <div
                 key={project.id}
-                title={resolve(project.title)}
-                description={resolve(project.description)}
-                techs={project.techs}
-                url={project.url}
-                github={project.github}
-                expanded={expandedProj === project.id}
-                onToggle={() => toggleProj(project.id)}
-              />
+                className={cn(
+                  "transition-all duration-300",
+                  expandedProj === project.id ? "md:col-span-2" : "col-span-1"
+                )}
+              >
+                <ProjectItem
+                  title={resolve(project.title)}
+                  description={resolve(project.description)}
+                  techs={project.techs as string[]}
+                  url={project.url}
+                  github={project.github}
+                  expanded={expandedProj === project.id}
+                  onToggle={() => toggleProj(project.id)}
+                  details={project.details ? {
+                    problem: resolve(project.details.problem),
+                    methodology: resolve(project.details.methodology),
+                    validation: resolve(project.details.validation),
+                    tools: project.details.tools,
+                  } : undefined}
+                  labels={{
+                    problem: resolve({ fr: 'Problématique', en: 'Problem' }),
+                    methodology: resolve({ fr: 'Méthodologie', en: 'Methodology' }),
+                    validation: resolve({ fr: 'Validation', en: 'Validation' }),
+                    tools: resolve({ fr: 'Stack', en: 'Stack' }),
+                    viewDetails: resolve(labels.actions.viewDetails ?? { fr: 'Détails', en: 'Details' }),
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </Section>
+      )}
+
+      {/* Section Compétences */}
+      {skills && skills.length > 0 && (
+        <Section title={resolve(labels.sections.skills)}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
+            {skills.map((category: SkillCategoryType, i: number) => (
+              <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
+                {category.type === 'badges' && (
+                  <div className="flex flex-wrap gap-2">
+                    {category.items.map((item: any) => {
+                      const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
+                      return <TechBadge key={techName} tech={techName} color={item.color} />
+                    })}
+                  </div>
+                )}
+                {category.type === 'text' && (
+                  <div className="flex flex-col gap-1">
+                    {category.items.some((item: any) => item.details) ? (
+                      category.items.map((item: any, j: number) => (
+                        <SkillTextItem
+                          key={`${resolve(item.name)}-${j}`}
+                          name={resolve(item.name)}
+                          details={item.details ? resolve(item.details) : undefined}
+                          viewDetailsLabel={resolve(labels.actions.viewDetails ?? { fr: 'Détails', en: 'Details' })}
+                        />
+                      ))
+                    ) : (
+                      <p className="text-xs text-resume-text-secondary font-medium leading-relaxed">
+                        {category.items
+                          .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
+                          .join(' · ')}
+                      </p>
+                    )}
+                  </div>
+                )}
+                {category.type === 'languages' && (
+                  <div className="flex flex-col gap-2">
+                    {category.items.map((item: any, j: number) => {
+                      const name = typeof item.name === 'string' ? item.name : resolve(item.name)
+                      return (
+                        <div key={`${name}-${j}`} className="flex items-center justify-between text-xs">
+                          <span className="font-bold text-resume-text uppercase tracking-tight">{name}</span>
+                          <span className="text-resume-primary font-medium">
+                            {item.level ? resolve(item.level) : ''}
+                            {item.details && (
+                              <span className="text-[10px] opacity-70 ml-1 italic">({resolve(item.details)})</span>
+                            )}
+                          </span>
+                        </div>
+                      )
+                    })}
+                  </div>
+                )}
+              </SkillCategory>
             ))}
           </div>
         </Section>
@@ -174,16 +218,11 @@ export function SingleColumnResume() {
                 degree={resolve(edu.degree)}
                 specialty={edu.specialty ? resolve(edu.specialty) : undefined}
                 period={edu.period}
-                logo={edu.logo}
               />
             ))}
           </div>
         </Section>
       )}
-      {/* Indication pour l’utilisateur */}
-      <p className="text-center text-sm text-resume-text-secondary mt-6">
-        {resolve(labels.actions.clickHint)}
-      </p>
     </div>
   )
 }

@@ -51,6 +51,8 @@ export interface Experience {
     context: LocalizedString
     tasks?: LocalizedStringArray
     training?: LocalizedStringArray
+    architecture?: LocalizedString
+    impact?: LocalizedString
     env: LocalizedString
   }
 }
@@ -64,6 +66,12 @@ export interface Project {
   techs: (TechName | (string & {}))[]
   url?: string
   github?: string
+  details?: {
+    problem: LocalizedString
+    methodology: LocalizedString
+    validation: LocalizedString
+    tools?: string[]
+  }
 }
 
 // ===== EDUCATION =====
@@ -125,9 +133,10 @@ export interface ResumeLabels {
     technologies: LocalizedString
   }
   actions: {
-    clickHint: LocalizedString
+    clickHint?: LocalizedString
     switchTheme: LocalizedString
     downloadPdf?: LocalizedString
+    viewDetails?: LocalizedString
   }
 }
 

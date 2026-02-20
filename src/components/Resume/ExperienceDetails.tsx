@@ -4,6 +4,8 @@ interface ExperienceDetailsContentProps {
   context: string
   tasks?: string[]
   training?: string[]
+  architecture?: string
+  impact?: string
   env: string
   techs?: string[]
   description?: string
@@ -13,6 +15,8 @@ interface ExperienceDetailsContentProps {
     training?: string
     techEnv: string
     technologies: string
+    architecture: string
+    impact: string
   }
   variant: 'inline' | 'modal'
 }
@@ -21,6 +25,8 @@ export function ExperienceDetailsContent({
   context,
   tasks,
   training,
+  architecture,
+  impact,
   env,
   techs,
   description,
@@ -80,6 +86,24 @@ export function ExperienceDetailsContent({
               </li>
             ))}
           </ul>
+        </div>
+      )}
+
+      {architecture && (
+        <div>
+          <p className="text-xs font-semibold text-resume-primary uppercase tracking-wider mb-1">
+            {labels.architecture}
+          </p>
+          <p className="text-xs text-resume-text-secondary whitespace-pre-line">{architecture}</p>
+        </div>
+      )}
+
+      {impact && (
+        <div>
+          <p className="text-xs font-semibold text-resume-primary uppercase tracking-wider mb-1">
+            {labels.impact}
+          </p>
+          <p className="text-xs text-resume-text-secondary whitespace-pre-line">{impact}</p>
         </div>
       )}
 

@@ -12,9 +12,10 @@ interface SectionProps {
  */
 export function Section({ title, children }: SectionProps) {
   return (
-    <section className="mt-8">
-      <h2 className="text-sm font-bold tracking-widest text-resume-text mb-4 pb-2 border-b border-resume-primary/20 uppercase">
-        {title}
+    <section className="mt-12 first:mt-8">
+      <h2 className="text-[13px] font-black tracking-[0.3em] text-resume-text mb-6 flex items-center gap-4 uppercase outline-none">
+        <span className="whitespace-nowrap">{title}</span>
+        <div className="h-px bg-resume-primary/10 flex-1" />
       </h2>
       {children}
     </section>
