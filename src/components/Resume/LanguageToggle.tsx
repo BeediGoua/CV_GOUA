@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { ChevronDownIcon } from '@/components/icons'
 import { useTranslation } from '@/lib/i18n'
 import { resumeConfig } from '@/data/resume-config'
+import type { LanguageCode } from '@/data/types'
 
 export function LanguageToggle() {
   const { language, setLanguage } = useTranslation()
@@ -22,7 +23,7 @@ export function LanguageToggle() {
 
   if (available.length <= 1) return null
 
-  const handleSelect = (lang: string) => {
+  const handleSelect = (lang: LanguageCode) => {
     setLanguage(lang)
     setIsOpen(false)
   }
@@ -58,11 +59,10 @@ export function LanguageToggle() {
                   onClick={() => handleSelect(lang)}
                   role="option"
                   aria-selected={lang === language}
-                  className={`w-full px-3 py-2 text-xs font-semibold tracking-wide text-left transition-colors cursor-pointer ${
-                    lang === language
+                  className={`w-full px-3 py-2 text-xs font-semibold tracking-wide text-left transition-colors cursor-pointer ${lang === language
                       ? 'bg-resume-primary/15 text-resume-primary'
                       : 'text-resume-text-secondary hover:bg-resume-primary/5 hover:text-resume-primary'
-                  }`}
+                    }`}
                 >
                   {labels[lang]}
                 </button>

@@ -1,8 +1,9 @@
 // ===== LOCALIZATION =====
 
-export type LocalizedString = Record<string, string>
+export type LanguageCode = 'fr' | 'en'
 
-export type LocalizedStringArray = Record<string, string[]>
+export type LocalizedString = Record<LanguageCode, string>
+export type LocalizedStringArray = Record<LanguageCode, string[]>
 
 // ===== CONTACT =====
 
@@ -10,7 +11,7 @@ export type ContactType = 'email' | 'phone' | 'location' | 'github' | 'linkedin'
 
 export interface ContactItem {
   type: ContactType
-  label: string
+  label: LocalizedString
   href?: string
 }
 
@@ -23,10 +24,10 @@ export interface SkillCategory {
 }
 
 export interface SkillItem {
-  name: string | LocalizedString
+  name: LocalizedString
   color?: string
   level?: LocalizedString
-  details?: string
+  details?: LocalizedString
 }
 
 // ===== EXPERIENCES =====
@@ -147,9 +148,9 @@ export interface ResumeConfig {
     description: string
   }
   languages: {
-    default: string
-    available: string[]
-    labels: Record<string, string>
+    default: LanguageCode
+    available: LanguageCode[]
+    labels: Record<LanguageCode, string>
   }
   contact: ContactItem[]
   skills: SkillCategory[]
@@ -159,7 +160,6 @@ export interface ResumeConfig {
   hobbies?: Hobby[]
   pdf?: {
     label?: LocalizedString
-    /** Single path for all languages, or one path per language (hides button if no PDF for current language) */
     path: string | LocalizedString
   }
   theme?: {

@@ -1,4 +1,4 @@
-import { getTechColor } from '@/data/tech-registry'
+import { getTechColor } from '../../data/tech-registry'
 
 interface TechBadgeProps {
   tech: string

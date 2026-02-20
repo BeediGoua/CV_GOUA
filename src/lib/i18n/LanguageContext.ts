@@ -1,9 +1,9 @@
 import { createContext } from 'react'
-import type { LocalizedString, LocalizedStringArray } from '@/data/types'
+import type { LanguageCode, LocalizedString, LocalizedStringArray } from '../../data/types'
 
 export interface LanguageContextValue {
-  language: string
-  setLanguage: (lang: string) => void
+  language: LanguageCode
+  setLanguage: (lang: LanguageCode) => void
   resolve: (ls: LocalizedString) => string
   resolveArray: (lsa: LocalizedStringArray) => string[]
 }

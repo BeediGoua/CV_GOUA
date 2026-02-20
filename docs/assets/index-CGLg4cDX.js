@@ -1,4 +1,4 @@
-import{r as _,a as Wn,j as e}from"./index-BAtPiuu2.js";var fo=`svg[fill=none] {
+import{r as _,a as Wn,j as e}from"./index-ot8po8w-.js";var fo=`svg[fill=none] {
   fill: none !important;
 }
 

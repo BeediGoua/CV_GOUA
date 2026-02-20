@@ -1,9 +1,10 @@
-import { useTranslation } from '@/lib/i18n'
-import { resumeConfig } from '@/data/resume-config'
+import { useTranslation } from '../../lib/i18n'
+import { resumeConfig } from '../../data/resume-config'
 import { ContactItem } from './ContactItem'
 import { PdfDownload } from './PdfDownload'
 import { LanguageToggle } from './LanguageToggle'
 import { ThemeToggle } from './ThemeToggle'
+import type { ContactItem as ContactItemType } from '../../data/types'
 
 /**
  * HeaderBlock affiche le nom, le titre, le profil, les contacts et les actions
@@ -50,13 +51,12 @@ export function HeaderBlock() {
         </p>
       )}
 
-      {/* Contact inline */}
       <div className="flex flex-wrap gap-4 mt-2">
-        {contact.map((item) => (
+        {contact.map((item: ContactItemType) => (
           <ContactItem
-            key={`${item.type}-${item.label}`}
+            key={`${item.type}-${resolve(item.label)}`}
             type={item.type}
-            label={item.label}
+            label={resolve(item.label)}
             href={item.href}
           />
         ))}

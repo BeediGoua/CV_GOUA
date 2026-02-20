@@ -1,22 +1,27 @@
 import { useState, useEffect, type ReactNode } from 'react'
-import { resumeConfig } from '@/data/resume-config'
-import type { LocalizedString, LocalizedStringArray } from '@/data/types'
+import { resumeConfig } from '../../data/resume-config'
+import type { LanguageCode, LocalizedString, LocalizedStringArray } from '../../data/types'
 import { LanguageContext } from './LanguageContext'
 
-function getUrlLanguage(): string | null {
+function isLang(x: string): x is LanguageCode {
+  return x === 'fr' || x === 'en'
+}
+
+function getUrlLanguage(): LanguageCode | null {
   const params = new URLSearchParams(window.location.search)
   const lang = params.get('lang')
-  if (lang && resumeConfig.languages.available.includes(lang)) return lang
+  if (lang && isLang(lang) && (resumeConfig.languages.available as string[]).includes(lang)) return lang
   return null
 }
 
-function detectBrowserLanguage(): string {
+function detectBrowserLanguage(): LanguageCode {
   const { available, default: defaultLang } = resumeConfig.languages
-  const browserLang = navigator.language.split('-')[0]
-  return available.includes(browserLang) ? browserLang : defaultLang
+  const browser = navigator.language.split('-')[0]
+  if (isLang(browser) && (available as string[]).includes(browser)) return browser
+  return defaultLang
 }
 
-function updateUrlLanguage(lang: string) {
+function updateUrlLanguage(lang: LanguageCode) {
   const url = new URL(window.location.href)
   url.searchParams.set('lang', lang)
   window.history.replaceState({}, '', url.toString())
@@ -25,18 +30,17 @@ function updateUrlLanguage(lang: string) {
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const { default: defaultLang } = resumeConfig.languages
 
-  const [language, setLanguageState] = useState(() => {
-    // Priority: 1. URL param  2. localStorage  3. browser detection
+  const [language, setLanguageState] = useState<LanguageCode>(() => {
     const urlLang = getUrlLanguage()
     if (urlLang) return urlLang
 
     const stored = localStorage.getItem('resume-language')
-    if (stored && resumeConfig.languages.available.includes(stored)) return stored
+    if (stored && isLang(stored) && (resumeConfig.languages.available as string[]).includes(stored)) return stored
 
     return detectBrowserLanguage()
   })
 
-  const setLanguage = (lang: string) => {
+  const setLanguage = (lang: LanguageCode) => {
     setLanguageState(lang)
     localStorage.setItem('resume-language', lang)
     updateUrlLanguage(lang)

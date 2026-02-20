@@ -1,4 +1,4 @@
-import { assetUrl } from '@/lib/utils'
+import { assetUrl } from '../../lib/utils'
 
 interface EducationItemProps {
   school: string

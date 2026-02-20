@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useTranslation } from '@/lib/i18n'
-import { resumeConfig } from '@/data/resume-config'
+import { useTranslation } from '../../lib/i18n'
+import { resumeConfig } from '../../data/resume-config'
 import { HeaderBlock } from './HeaderBlock'
 import { Section } from './Section'
 import { SkillCategory } from './SkillCategory'
@@ -8,6 +8,7 @@ import { ExperienceItem } from './ExperienceItem'
 import { ProjectItem } from './ProjectItem'
 import { EducationItem } from './EducationItem'
 import { TechBadge } from './TechBadge'
+import type { LocalizedString, SkillCategory as SkillCategoryType, Experience, Project, Education } from '../../data/types'
 
 /**
  * SingleColumnResume est un composant qui assemble l’ensemble des
@@ -61,12 +62,12 @@ export function SingleColumnResume() {
       {skills && skills.length > 0 && (
         <Section title={resolve(labels.sections.skills)}>
           <div className="space-y-4">
-            {skills.map((category, i) => (
+            {skills.map((category: SkillCategoryType, i: number) => (
               <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
                 {category.type === 'badges' && (
                   <div className="flex flex-wrap gap-1.5">
-                    {category.items.map((item) => {
-                      const techName = typeof item.name === 'string' ? item.name : Object.values(item.name)[0]
+                    {category.items.map((item: any) => {
+                      const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
                       return <TechBadge key={techName} tech={techName} color={item.color} />
                     })}
                   </div>
@@ -74,20 +75,20 @@ export function SingleColumnResume() {
                 {category.type === 'text' && (
                   <p className="text-xs text-resume-text-secondary">
                     {category.items
-                      .map((item) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
+                      .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
                       .join(', ')}
                   </p>
                 )}
                 {category.type === 'languages' && (
                   <div className="flex items-center gap-3 text-sm flex-wrap">
-                    {category.items.map((item, j) => {
+                    {category.items.map((item: any, j: number) => {
                       const name = typeof item.name === 'string' ? item.name : resolve(item.name)
                       return (
                         <span key={`${name}-${j}`} className="flex items-center gap-1">
                           <span className="text-resume-text-secondary">
                             {name} {item.level ? resolve(item.level) : ''}
                             {item.details && (
-                              <span className="text-xs opacity-70 ml-1">{item.details}</span>
+                              <span className="text-xs opacity-70 ml-1">{resolve(item.details)}</span>
                             )}
                           </span>
                         </span>
@@ -105,7 +106,7 @@ export function SingleColumnResume() {
       {experiences && experiences.length > 0 && (
         <Section title={resolve(labels.sections.experience)}>
           <div className="space-y-2">
-            {experiences.map((exp) => (
+            {experiences.map((exp: Experience) => (
               <ExperienceItem
                 key={exp.id}
                 year={resolve(exp.period)}
@@ -119,19 +120,19 @@ export function SingleColumnResume() {
                 details={
                   exp.details
                     ? {
-                        context: resolve(exp.details.context),
-                        tasks: exp.details.tasks ? resolveArray(exp.details.tasks) : undefined,
-                        training: exp.details.training ? resolveArray(exp.details.training) : undefined,
-                        env: resolve(exp.details.env),
-                      }
+                      context: resolve(exp.details.context),
+                      tasks: exp.details.tasks ? resolveArray(exp.details.tasks) : undefined,
+                      training: exp.details.training ? resolveArray(exp.details.training) : undefined,
+                      env: resolve(exp.details.env),
+                    }
                     : undefined
                 }
                 subItem={
                   exp.subItem
                     ? {
-                        title: resolve(exp.subItem.title),
-                        description: resolve(exp.subItem.description),
-                      }
+                      title: resolve(exp.subItem.title),
+                      description: resolve(exp.subItem.description),
+                    }
                     : undefined
                 }
                 labels={experienceLabels}
@@ -146,7 +147,7 @@ export function SingleColumnResume() {
       {projects && projects.length > 0 && labels.sections.projects && (
         <Section title={resolve(labels.sections.projects)}>
           <div className="space-y-1">
-            {projects.map((project) => (
+            {projects.map((project: Project) => (
               <ProjectItem
                 key={project.id}
                 title={resolve(project.title)}
@@ -166,7 +167,7 @@ export function SingleColumnResume() {
       {education && education.length > 0 && (
         <Section title={resolve(labels.sections.education)}>
           <div className="space-y-4">
-            {education.map((edu, i) => (
+            {education.map((edu: Education, i: number) => (
               <EducationItem
                 key={`${resolve(edu.school)}-${resolve(edu.degree)}-${edu.period ?? i}`}
                 school={resolve(edu.school)}

@@ -1,13 +1,14 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { useTranslation } from '@/lib/i18n'
-import { resumeConfig } from '@/data/resume-config'
+import { useTranslation } from '../../lib/i18n'
+import { resumeConfig } from '../../data/resume-config'
 import { assetUrl } from '@/lib/utils'
 import { detectedAssets } from 'virtual:detected-assets'
 import { SidebarSection } from './SidebarSection'
 import { ContactItem } from './ContactItem'
 import { SkillCategory } from './SkillCategory'
 import { TechBadge } from './TechBadge'
+import type { LocalizedString, SkillCategory as SkillCategoryType, Hobby, ContactItem as ContactItemType } from '../../data/types'
 
 const PHOTO_ANIMATION_DURATION = 0.8
 
@@ -90,8 +91,13 @@ export function Sidebar() {
       {/* Contact */}
       <SidebarSection title={resolve(labels.sections.contact)}>
         <div className="space-y-3">
-          {contact.map((item) => (
-            <ContactItem key={`${item.type}-${item.label}`} type={item.type} label={item.label} href={item.href} />
+          {contact.map((item: ContactItemType) => (
+            <ContactItem
+              key={`${item.type}-${resolve(item.label)}`}
+              type={item.type}
+              label={resolve(item.label)}
+              href={item.href}
+            />
           ))}
         </div>
       </SidebarSection>
@@ -99,12 +105,12 @@ export function Sidebar() {
       {/* Skills */}
       <SidebarSection title={resolve(labels.sections.skills)}>
         <div className="space-y-4">
-          {skills.map((category, i) => (
+          {skills.map((category: SkillCategoryType, i: number) => (
             <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
               {category.type === 'badges' && (
                 <div className="flex flex-wrap gap-1.5">
-                  {category.items.map((item) => {
-                    const techName = typeof item.name === 'string' ? item.name : Object.values(item.name)[0]
+                  {category.items.map((item: any) => {
+                    const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
                     return <TechBadge key={techName} tech={techName} color={item.color} />
                   })}
                 </div>
@@ -112,20 +118,20 @@ export function Sidebar() {
               {category.type === 'text' && (
                 <p className="text-xs text-resume-text-secondary">
                   {category.items
-                    .map((item) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
+                    .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
                     .join(', ')}
                 </p>
               )}
               {category.type === 'languages' && (
                 <div className="flex items-center gap-3 text-sm flex-wrap">
-                  {category.items.map((item, j) => {
+                  {category.items.map((item: any, j: number) => {
                     const name = typeof item.name === 'string' ? item.name : resolve(item.name)
                     return (
                       <span key={`${name}-${j}`} className="flex items-center gap-1">
                         <span className="text-resume-text-secondary">
                           {name} {item.level ? resolve(item.level) : ''}
                           {item.details && (
-                            <span className="text-xs opacity-70 ml-1">{item.details}</span>
+                            <span className="text-xs opacity-70 ml-1">{resolve(item.details)}</span>
                           )}
                         </span>
                       </span>
@@ -142,10 +148,10 @@ export function Sidebar() {
       {hobbies && hobbies.length > 0 && labels.sections.hobbies && (
         <SidebarSection title={resolve(labels.sections.hobbies)}>
           <div className="grid grid-cols-2 gap-3">
-            {hobbies.map((hobby, i) => (
+            {hobbies.map((hobby: Hobby, i: number) => (
               <div key={`${resolve(hobby.title)}-${i}`}>
                 <p className="font-medium text-sm text-resume-text">{resolve(hobby.title)}</p>
-                {hobby.details?.map((detail, j) => (
+                {hobby.details?.map((detail: LocalizedString, j: number) => (
                   <p key={j} className="text-xs text-resume-text-secondary">
                     {resolve(detail)}
                   </p>

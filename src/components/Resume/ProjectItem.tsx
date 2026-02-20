@@ -1,5 +1,5 @@
 import { TechBadge } from './TechBadge'
-import { GitHubIcon, ExternalLinkIcon } from '@/components/icons'
+import { GitHubIcon, ExternalLinkIcon } from '../icons'
 
 export interface ProjectItemProps {
   title: string

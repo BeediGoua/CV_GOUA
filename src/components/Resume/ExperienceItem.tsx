@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { ChevronDownIcon } from '@/components/icons'
-import { useBreakpoints } from '@/lib/hooks/useBreakpoints'
-import { Modal } from '@/components/ui/Modal'
-import { cn } from '@/lib/utils'
+import { ChevronDownIcon } from '../icons'
+import { useBreakpoints } from '../../lib/hooks/useBreakpoints'
+import { Modal } from '../ui/Modal'
+import { cn } from '../../lib/utils'
 import { TechBadge } from './TechBadge'
 import { ExperienceDetailsContent } from './ExperienceDetails'
 

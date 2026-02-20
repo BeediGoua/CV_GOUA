@@ -1,7 +1,7 @@
 import { DownloadIcon } from '@/components/icons'
-import { useTranslation } from '@/lib/i18n'
-import { resumeConfig } from '@/data/resume-config'
-import { assetUrl } from '@/lib/utils'
+import { useTranslation } from '../../lib/i18n'
+import { resumeConfig } from '../../data/resume-config'
+import { assetUrl } from '../../lib/utils'
 import { detectedAssets } from 'virtual:detected-assets'
 
 const DEFAULT_LABELS: Record<string, string> = {
@@ -17,9 +17,10 @@ export function PdfDownload() {
 
   if (resumeConfig.pdf) {
     const { path } = resumeConfig.pdf
-    resolvedPath = typeof path === 'string'
-      ? path
-      : path[language] ?? null
+    resolvedPath =
+      typeof path === 'string'
+        ? path
+        : path[language] ?? path[resumeConfig.languages.default] ?? Object.values(path)[0] ?? null
   } else if (detectedAssets.pdf[language]) {
     resolvedPath = detectedAssets.pdf[language]
   }

@@ -26,6 +26,10 @@ export const resumeConfig: ResumeConfig = {
       fr: '6 ans d\'expérience',
     },
     location: 'Paris, France',
+    profile: {
+      en: 'Example profile summary in English.',
+      fr: 'Exemple de résumé de profil en français.',
+    },
   },
 
   // ===== SEO (used in <head> meta tags) =====
@@ -46,11 +50,11 @@ export const resumeConfig: ResumeConfig = {
 
   // ===== CONTACT =====
   contact: [
-    { type: 'github', label: 'janedoe', href: 'https://github.com/janedoe' },
-    { type: 'linkedin', label: 'Jane Doe', href: 'https://linkedin.com/in/janedoe' },
-    { type: 'email', label: 'jane@example.com' },
-    { type: 'phone', label: '+33 6 12 34 56 78' },
-    { type: 'location', label: 'Paris, France' },
+    { type: 'github', label: { en: 'janedoe', fr: 'janedoe' }, href: 'https://github.com/janedoe' },
+    { type: 'linkedin', label: { en: 'Jane Doe', fr: 'Jane Doe' }, href: 'https://linkedin.com/in/janedoe' },
+    { type: 'email', label: { en: 'jane@example.com', fr: 'jane@example.com' } },
+    { type: 'phone', label: { en: '+33 6 12 34 56 78', fr: '+33 6 12 34 56 78' } },
+    { type: 'location', label: { en: 'Paris, France', fr: 'Paris, France' } },
   ],
 
   // ===== SKILLS =====
@@ -60,42 +64,42 @@ export const resumeConfig: ResumeConfig = {
       type: 'languages',
       items: [
         { name: { en: 'French', fr: 'Français' }, level: { en: 'Native', fr: 'Natif' } },
-        { name: { en: 'English', fr: 'Anglais' }, level: { en: 'Professional', fr: 'Professionnel' }, details: 'TOEIC 910' },
+        { name: { en: 'English', fr: 'Anglais' }, level: { en: 'Professional', fr: 'Professionnel' }, details: { en: 'TOEIC 910', fr: 'TOEIC 910' } },
       ],
     },
     {
       title: { en: 'Frontend', fr: 'Frontend' },
       type: 'badges',
       items: [
-        { name: 'React' },
-        { name: 'TypeScript' },
-        { name: 'Angular' },
+        { name: { en: 'React', fr: 'React' } },
+        { name: { en: 'TypeScript', fr: 'TypeScript' } },
+        { name: { en: 'Angular', fr: 'Angular' } },
       ],
     },
     {
       title: { en: 'Backend', fr: 'Backend' },
       type: 'badges',
       items: [
-        { name: 'Node.js' },
-        { name: 'Python' },
+        { name: { en: 'Node.js', fr: 'Node.js' } },
+        { name: { en: 'Python', fr: 'Python' } },
       ],
     },
     {
       title: { en: 'Database', fr: 'Base de données' },
       type: 'badges',
       items: [
-        { name: 'PostgreSQL' },
-        { name: 'MongoDB' },
+        { name: { en: 'PostgreSQL', fr: 'PostgreSQL' } },
+        { name: { en: 'MongoDB', fr: 'MongoDB' } },
       ],
     },
     {
       title: { en: 'DevOps', fr: 'DevOps' },
       type: 'badges',
       items: [
-        { name: 'Docker' },
-        { name: 'Kubernetes' },
-        { name: 'AWS' },
-        { name: 'GitHub Actions' },
+        { name: { en: 'Docker', fr: 'Docker' } },
+        { name: { en: 'Kubernetes', fr: 'Kubernetes' } },
+        { name: { en: 'AWS', fr: 'AWS' } },
+        { name: { en: 'GitHub Actions', fr: 'GitHub Actions' } },
       ],
     },
     {

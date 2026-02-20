@@ -7,8 +7,8 @@ import {
   LocationIcon,
   PhoneIcon,
   WebsiteIcon,
-} from '@/components/icons'
-import type { ContactType } from '@/data/types'
+} from '../icons'
+import type { ContactType } from '../../data/types'
 import { AnimatePresence, motion } from 'framer-motion'
 import { useCallback, useState } from 'react'
 
