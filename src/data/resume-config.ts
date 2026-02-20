@@ -26,8 +26,8 @@ export const resumeConfig: ResumeConfig = {
     },
     // Texte de présentation détaillé (profil)
     profile: {
-      fr: 'Diplômé de l’ENSAI, j’ai travaillé sur la conception de pipelines data/ML et de systèmes d’évaluation de modèles, notamment en IA générative. Je souhaite évoluer en tant que Data Scientist sur des projets d’IA appliquée, avec une attention particulière à la robustesse, à l’évaluation et à la fiabilité des résultats.',
-      en: 'Graduate of ENSAI, I have worked on designing data/ML pipelines and model evaluation systems, particularly in generative AI. I aim to evolve as a Data Scientist on applied AI projects with a focus on robustness, evaluation and reliability of results.',
+      fr: "Diplômé de l’ENSAI, j’ai travaillé sur la conception de pipelines data/ML et de systèmes d’évaluation de modèles, notamment en IA générative. Je souhaite évoluer en tant que Data Scientist sur des projets d’IA appliquée, avec une attention particulière à la robustesse, à l’évaluation et à la fiabilité des résultats.",
+      en: "Graduate of ENSAI, I have worked on designing data/ML pipelines and model evaluation systems, particularly in generative AI. I aim to evolve as a Data Scientist on applied AI projects with a focus on robustness, evaluation and reliability of results."
     },
     location: 'Paris, France',
   },

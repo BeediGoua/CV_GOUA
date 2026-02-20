@@ -140,6 +140,7 @@ export interface ResumeConfig {
     title: LocalizedString
     subtitle?: LocalizedString
     location?: string
+    profile?: LocalizedString
   }
   seo: {
     title: string

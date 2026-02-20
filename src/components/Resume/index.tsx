@@ -1,6 +1,5 @@
 import { motion } from 'framer-motion'
-import { useTranslation } from '@/lib/i18n'
-import { resumeConfig } from '@/data/resume-config'
+
 import { SingleColumnResume } from './SingleColumnResume'
 
 export function Resume() {
