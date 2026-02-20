@@ -330,7 +330,7 @@ export const resumeConfig: ResumeConfig = {
     label: { fr: 'Télécharger le PDF', en: 'Download PDF' },
     path: {
       fr: '/cv/fr/GOUA_CV_FR.pdf',
-      en: '/cv/fr/GOUA_CV_EN.pdf'
+      en: '/cv/en/GOUA_CV_EN.pdf'
     },
   },
 
