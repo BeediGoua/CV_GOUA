@@ -1,7 +1,7 @@
 import { useEffect, useRef, useId } from 'react'
 import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CloseIcon } from '@/components/icons'
+import { CloseIcon } from '../icons'
 
 interface ModalProps {
   isOpen: boolean

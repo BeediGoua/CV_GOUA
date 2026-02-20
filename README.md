@@ -7,7 +7,7 @@ Ce projet est un CV interactif et portfolio bilingue (Français/Anglais) conçu 
 ## Fonctionnalités clés
 
 - **Bilingue (FR/EN)** : Support natif de l'internationalisation avec bascule instantanée.
-- **Design Premium & Responsive** : Interface moderne avec mode sombre/clair, micro-animations (Framer Motion) et une hiérarchie visuelle soignée.
+- **Design  Responsive** : Interface moderne avec mode sombre/clair, micro-animations (Framer Motion) et une hiérarchie visuelle soignée.
 - **Grille de Projets Intelligente** : Affichage en matrice 2x2 avec expansion fluide pour une lecture détaillée.
 - **Compétences Interactives** : Section structurée par domaines (Stats, ML, DL, IA Générative) avec détails expansibles.
 - **Data-Driven** : Tout le contenu est piloté par un seul fichier de configuration : `src/data/resume-config.ts`.
@@ -24,19 +24,23 @@ Ce projet est un CV interactif et portfolio bilingue (Français/Anglais) conçu 
 ## Installation & Développement
 
 ### 1. Installation
+
 ```bash
 npm install
 ```
 
 ### 2. Développement local
+
 ```bash
 npm run dev
 ```
 
 ### 3. Build pour la production
+
 ```bash
 npm run build
 ```
+
 Les fichiers statiques sont générés dans le dossier `dist/`.
 
 ## Structure du projet
@@ -46,4 +50,5 @@ Les fichiers statiques sont générés dans le dossier `dist/`.
 - `public/cv/` : Contient les versions PDF téléchargeables.
 
 ---
+
 © 2026 Goua Beedi — [LinkedIn](https://linkedin.com/in/gouabeedi) · [GitHub](https://github.com/beedigoua)

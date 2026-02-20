@@ -1,5 +1,5 @@
 import { createContext } from 'react'
-import type { ThemeColors, PresetName } from '@/data/types'
+import type { ThemeColors, PresetName } from '../../data/types'
 
 export interface ThemeContextValue {
   isDark: boolean

@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
-import { SunIcon, MoonIcon } from '@/components/icons'
-import { useTheme } from '@/lib/theme'
+import { SunIcon, MoonIcon } from '../icons'
+import { useTheme } from '../../lib/theme'
 
 interface ThemeToggleProps {
   label?: string

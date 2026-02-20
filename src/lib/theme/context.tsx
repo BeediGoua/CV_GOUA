@@ -1,7 +1,7 @@
 import { useState, useEffect, type ReactNode } from 'react'
-import { resumeConfig } from '@/data/resume-config'
-import { presets } from '@/data/presets'
-import type { ThemeColors, PresetName } from '@/data/types'
+import { resumeConfig } from '../../data/resume-config'
+import { presets } from '../../data/presets'
+import type { ThemeColors, PresetName } from '../../data/types'
 import { ThemeContext } from './ThemeContext'
 
 function getTimeBasedTheme(): 'light' | 'dark' {

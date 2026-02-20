@@ -1,4 +1,4 @@
-import { DownloadIcon } from '@/components/icons'
+import { DownloadIcon } from '../icons'
 import { useTranslation } from '../../lib/i18n'
 import { resumeConfig } from '../../data/resume-config'
 import { assetUrl } from '../../lib/utils'

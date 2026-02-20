@@ -1,14 +1,14 @@
 import { useState } from 'react'
-import { useTranslation } from '@/lib/i18n'
-import { resumeConfig } from '@/data/resume-config'
-import type { Experience, Project, Education, LocalizedString } from '@/data/types'
+import { useTranslation } from '../../lib/i18n'
+import { resumeConfig } from '../../data/resume-config'
+import type { Experience, Project, Education, LocalizedString } from '../../data/types'
 import { ExperienceItem } from './ExperienceItem'
 import { ProjectItem } from './ProjectItem'
 import { EducationItem } from './EducationItem'
 import { SkillCategory } from './SkillCategory'
 import { SkillTextItem } from './SkillTextItem'
 import { TechBadge } from './TechBadge'
-import { cn } from '@/lib/utils'
+import { cn } from '../../lib/utils'
 
 export function MainContent() {
   const { resolve, resolveArray } = useTranslation()
