@@ -301,6 +301,54 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
+      id: 'brokerflow-ai',
+      title: { fr: 'BrokerFlow AI — Système de décision de crédit', en: 'BrokerFlow AI — Credit Underwriting Decision System' },
+      description: {
+        fr: 'Système complet de souscription combinant scoring ML calibré et politiques de décision basées sur règles (Concours Zindi).',
+        en: 'End-to-end underwriting system combining calibrated ML scoring and rule-based decision policies (Zindi competition).',
+      },
+      techs: ['Python', 'Scikit-learn', 'FastAPI', 'Streamlit', 'XGBoost'],
+      details: {
+        problem: {
+          fr: 'Automatiser les décisions de souscription de crédit en combinant ML et règles métier.',
+          en: 'Automate credit underwriting decisions by combining machine learning with business rules.',
+        },
+        methodology: {
+          fr: '• Reconstruction de features proxy à partir de données incomplètes\n• Calibration des probabilités prédites\n• Design d\'agents pour analyse contextuelle et génération de résumés',
+          en: '• Reconstruction of financial proxy features from incomplete data\n• Prediction calibration for decision thresholds\n• Agent-based components for context analysis and decision summarization',
+        },
+        validation: {
+          fr: '• Robustesse accrue des prédictions\n• Détection d\'incohérences dans les données\n• Génération transparente des justifications',
+          en: '• Improved model robustness on incomplete data\n• Inconsistency detection in applications\n• Transparent decision justification generation',
+        },
+        tools: ['Python', 'Scikit-learn', 'XGBoost', 'FastAPI', 'Streamlit'],
+      },
+    },
+    {
+      id: 'document-ai-pipeline',
+      title: { fr: 'Document AI Pipeline — Classification et extraction de documents d\'identité', en: 'Document AI Pipeline — Identity Document Classification & Extraction' },
+      description: {
+        fr: 'Pipeline modulaire pour classifier et extraire les informations structurées de documents d\'identité (PDF/images).',
+        en: 'Modular pipeline to identify and extract structured information from identity documents (ID card, passport, driver license).',
+      },
+      techs: ['Python', 'OCR', 'Computer Vision', 'PyTorch', 'FastAPI'],
+      details: {
+        problem: {
+          fr: 'Extraire automatiquement les informations d\'identité à partir de documents variés et de qualités différentes.',
+          en: 'Automatically extract identity information from diverse document types and variable image quality.',
+        },
+        methodology: {
+          fr: '• Classification de type de document (Carte d\'identité, Passeport, Permis, etc.)\n• OCR avec normalisation\n• Parsing de zones de lecture machine (MRZ)\n• Architecture modulaire et réutilisable',
+          en: '• Document type classification (ID card, passport, driver license, etc.)\n• Optical Character Recognition (OCR) with normalization\n• Machine Readable Zone (MRZ) parsing\n• Modular and reusable architecture',
+        },
+        validation: {
+          fr: '• Taux de reconnaissance élevé multilingue\n• Extraction structurée fiable\n• Robustesse aux variations de numérisation',
+          en: '• High multilingual recognition accuracy\n• Reliable structured data extraction\n• Robustness to scanning variations',
+        },
+        tools: ['Python', 'PyTorch', 'OpenCV', 'Tesseract OCR', 'FastAPI'],
+      },
+    },
+    {
       id: 'portfolio-site',
       title: { fr: 'Portfolio', en: 'Portfolio' },
       description: { fr: 'Site personnel présentant mes projets.', en: 'Personal site showcasing my projects.' },
