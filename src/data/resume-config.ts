@@ -253,8 +253,8 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
-      id: 'etl-pipeline',
-      title: { fr: 'Pipeline ETL — Job Market Intelligence', en: 'ETL Pipeline — Job Market Intelligence' },
+      id: 'brokerflow-ai',
+      title: { fr: 'BrokerFlow AI — Système de décision de crédit', en: 'BrokerFlow AI — Credit Underwriting Decision System' },
       description: {
         fr: 'Pipeline d’ingestion multi‑sources avec architecture Bronze/Silver/Gold.',
         en: 'Multi-source ingestion pipeline with Bronze/Silver/Gold architecture.',
@@ -277,8 +277,8 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
-      id: 'llm-hallucination',
-      title: { fr: 'LLM Hallucination Detection', en: 'LLM Hallucination Detection' },
+      id: 'document-ai-pipeline',
+      title: { fr: 'Document AI Pipeline — Classification et extraction de documents d\'identité', en: 'Document AI Pipeline — Identity Document Classification & Extraction' },
       description: {
         fr: 'Pipeline d’évaluation de la cohérence factuelle des résumés.',
         en: 'Evaluation pipeline for factual consistency in summaries.',
@@ -298,30 +298,6 @@ export const resumeConfig: ResumeConfig = {
           en: '• Reduced undetected hallucination cases\n• Increased answer reliability',
         },
         tools: ['Python', 'OpenAI API', 'Vector DB'],
-      },
-    },
-    {
-      id: 'brokerflow-ai',
-      title: { fr: 'BrokerFlow AI — Système de décision de crédit', en: 'BrokerFlow AI — Credit Underwriting Decision System' },
-      description: {
-        fr: 'Système complet de souscription combinant scoring ML calibré et politiques de décision basées sur règles (Concours Zindi).',
-        en: 'End-to-end underwriting system combining calibrated ML scoring and rule-based decision policies (Zindi competition).',
-      },
-      techs: ['Python', 'Scikit-learn', 'FastAPI', 'Streamlit', 'XGBoost'],
-      details: {
-        problem: {
-          fr: 'Automatiser les décisions de souscription de crédit en combinant ML et règles métier.',
-          en: 'Automate credit underwriting decisions by combining machine learning with business rules.',
-        },
-        methodology: {
-          fr: '• Reconstruction de features proxy à partir de données incomplètes\n• Calibration des probabilités prédites\n• Design d\'agents pour analyse contextuelle et génération de résumés',
-          en: '• Reconstruction of financial proxy features from incomplete data\n• Prediction calibration for decision thresholds\n• Agent-based components for context analysis and decision summarization',
-        },
-        validation: {
-          fr: '• Robustesse accrue des prédictions\n• Détection d\'incohérences dans les données\n• Génération transparente des justifications',
-          en: '• Improved model robustness on incomplete data\n• Inconsistency detection in applications\n• Transparent decision justification generation',
-        },
-        tools: ['Python', 'Scikit-learn', 'XGBoost', 'FastAPI', 'Streamlit'],
       },
     },
     {
@@ -346,6 +322,54 @@ export const resumeConfig: ResumeConfig = {
           en: '• High multilingual recognition accuracy\n• Reliable structured data extraction\n• Robustness to scanning variations',
         },
         tools: ['Python', 'PyTorch', 'OpenCV', 'Tesseract OCR', 'FastAPI'],
+      },
+    },
+    {
+      id: 'etl-pipeline',
+      title: { fr: 'Pipeline ETL — Job Market Intelligence', en: 'ETL Pipeline — Job Market Intelligence' },
+      description: {
+        fr: "Pipeline d'ingestion multi‑sources avec architecture Bronze/Silver/Gold.",
+        en: 'Multi-source ingestion pipeline with Bronze/Silver/Gold architecture.',
+      },
+      techs: ['PostgreSQL', 'Python', 'Docker', 'ETL'],
+      details: {
+        problem: {
+          fr: "Besoin d'agréger des offres d'emploi hétérogènes pour analyser les compétences.",
+          en: 'Aggregating heterogeneous job offers to analyze skill trends.',
+        },
+        methodology: {
+          fr: '• Architecture Bronze / Silver / Gold\n• Déduplication inter-sources\n• Historisation SCD2',
+          en: '• Bronze / Silver / Gold architecture\n• Cross-source deduplication\n• SCD2 historization',
+        },
+        validation: {
+          fr: '• Checks de qualité des données\n• Chargements incrémentaux robustes',
+          en: '• Data quality checks\n• Robust incremental loads',
+        },
+        tools: ['PostgreSQL', 'Python', 'Docker'],
+      },
+    },
+    {
+      id: 'llm-hallucination',
+      title: { fr: 'LLM Hallucination Detection', en: 'LLM Hallucination Detection' },
+      description: {
+        fr: "Pipeline d'évaluation de la cohérence factuelle des résumés.",
+        en: 'Evaluation pipeline for factual consistency in summaries.',
+      },
+      techs: ['RAG', 'LLM-as-judge', 'Embeddings'],
+      details: {
+        problem: {
+          fr: 'Les modèles génératifs produisent souvent des faits erronés dans les résumés.',
+          en: 'Generative models often produce erroneous facts in summaries.',
+        },
+        methodology: {
+          fr: "• Scoring par similarité d'embeddings\n• Évaluation par LLM-as-judge\n• Validation par retrieval-grounding",
+          en: '• Embedding similarity scoring\n• LLM-as-judge evaluation\n• Retrieval-grounded validation',
+        },
+        validation: {
+          fr: "• Réduction des cas d'hallucination non détectés\n• Fiabilité accrue des réponses",
+          en: '• Reduced undetected hallucination cases\n• Increased answer reliability',
+        },
+        tools: ['Python', 'OpenAI API', 'Vector DB'],
       },
     },
     {
