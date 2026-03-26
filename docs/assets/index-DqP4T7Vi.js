@@ -1,8 +1,4 @@
-<<<<<<<< HEAD:docs/assets/index-AsGmaRpR.js
-import{r as _,a as Wn,j as e}from"./index-DHIik2SR.js";var fo=`svg[fill=none] {
-========
-import{r as _,a as Wn,j as e}from"./index-BScfYlEg.js";var fo=`svg[fill=none] {
->>>>>>>> a2d5470 (chore: update resume project):docs/assets/index-CMLKn1xf.js
+import{r as _,a as Wn,j as e}from"./index-DXJxx0mU.js";var fo=`svg[fill=none] {
   fill: none !important;
 }
 
