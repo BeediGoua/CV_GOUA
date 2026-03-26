@@ -49,6 +49,9 @@ npm run dev
 ```bash
 npm run lint
 npm run build
+git add -A
+git commit -m "update"
+git push
 ```
 
 ## Project Structure
