@@ -10,7 +10,7 @@ import { ProjectItem } from './ProjectItem'
 import { EducationItem } from './EducationItem'
 import { TechBadge } from './TechBadge'
 import { cn } from '../../lib/utils'
-import type { LocalizedString, SkillCategory as SkillCategoryType, Experience, Project, Education } from '../../data/types'
+import type { SkillCategory as SkillCategoryType, SkillItem, Experience, Project, Education } from '../../data/types'
 
 /**
  * SingleColumnResume est un composant qui assemble l’ensemble des
@@ -101,7 +101,6 @@ export function SingleColumnResume() {
                   impact: resolve({ fr: 'Impact', en: 'Impact' }),
                   viewDetails: resolve(labels.actions.viewDetails ?? { fr: 'Détails', en: 'Details' }),
                 }}
-                resolve={resolve}
                 isHighlighted={exp.isHighlighted}
               />
             ))}
@@ -157,16 +156,16 @@ export function SingleColumnResume() {
               <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
                 {category.type === 'badges' && (
                   <div className="flex flex-wrap gap-2">
-                    {category.items.map((item: any) => {
-                      const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
+                    {category.items.map((item: SkillItem) => {
+                      const techName = resolve(item.name)
                       return <TechBadge key={techName} tech={techName} color={item.color} />
                     })}
                   </div>
                 )}
                 {category.type === 'text' && (
                   <div className="flex flex-col gap-1">
-                    {category.items.some((item: any) => item.details) ? (
-                      category.items.map((item: any, j: number) => (
+                    {category.items.some((item: SkillItem) => item.details) ? (
+                      category.items.map((item: SkillItem, j: number) => (
                         <SkillTextItem
                           key={`${resolve(item.name)}-${j}`}
                           name={resolve(item.name)}
@@ -177,7 +176,7 @@ export function SingleColumnResume() {
                     ) : (
                       <p className="text-xs text-resume-text-secondary font-medium leading-relaxed">
                         {category.items
-                          .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
+                          .map((item: SkillItem) => resolve(item.name))
                           .join(' · ')}
                       </p>
                     )}
@@ -185,8 +184,8 @@ export function SingleColumnResume() {
                 )}
                 {category.type === 'languages' && (
                   <div className="flex flex-col gap-2">
-                    {category.items.map((item: any, j: number) => {
-                      const name = typeof item.name === 'string' ? item.name : resolve(item.name)
+                    {category.items.map((item: SkillItem, j: number) => {
+                      const name = resolve(item.name)
                       return (
                         <div key={`${name}-${j}`} className="flex items-center justify-between text-xs">
                           <span className="font-bold text-resume-text uppercase tracking-tight">{name}</span>

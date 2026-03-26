@@ -35,7 +35,6 @@ interface ExperienceItemProps {
     impact: string
     viewDetails?: string
   }
-  resolve?: (val: any) => string
   isHighlighted?: boolean
 }
 

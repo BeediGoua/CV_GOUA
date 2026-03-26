@@ -4,14 +4,14 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
-import { resumeSeoPlugin } from './vite-plugin-resume-seo'
-import { assetsDetectPlugin } from './vite-plugin-assets-detect'
-import { resumeValidatePlugin } from './vite-plugin-resume-validate'
+import { resumeSeoPlugin } from './build/plugins/vite-plugin-resume-seo'
+import { assetsDetectPlugin } from './build/plugins/vite-plugin-assets-detect'
+import { resumeValidatePlugin } from './build/plugins/vite-plugin-resume-validate'
 
 export default defineConfig({
   // Dynamic base path: set automatically by GitHub Actions deploy workflow.
   // Falls back to repo name for local development.
-  base: '/CV_GOUA/',
+  base: process.env.VITE_BASE_PATH ?? '/CV_GOUA/',
   plugins: [react(), tailwindcss(), assetsDetectPlugin(), resumeValidatePlugin(), resumeSeoPlugin()],
   resolve: {
     alias: {

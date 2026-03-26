@@ -1,53 +1,83 @@
-# Goua Beedi — Portfolio Interactif & CV
+# Goua Beedi - Portfolio Interactif et CV
 
-Ce projet est un CV interactif et portfolio bilingue (Français/Anglais) conçu pour être ultra-rapide, élégant et optimisé pour le SEO.
+[![Deploy to GitHub Pages](https://github.com/beedigoua/CV_GOUA/actions/workflows/deploy.yml/badge.svg)](https://github.com/beedigoua/CV_GOUA/actions/workflows/deploy.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-**[Lien vers la démo en ligne](https://beedigoua.github.io/CV_GOUA/)**
+CV interactif bilingue (FR/EN) construit avec React + TypeScript + Vite, avec un focus sur la performance, l'accessibilite et le SEO.
 
-## Fonctionnalités clés
+Demo: https://beedigoua.github.io/CV_GOUA/
 
-- **Bilingue (FR/EN)** : Support natif de l'internationalisation avec bascule instantanée.
-- **Design  Responsive** : Interface moderne avec mode sombre/clair, micro-animations (Framer Motion) et une hiérarchie visuelle soignée.
-- **Grille de Projets Intelligente** : Affichage en matrice 2x2 avec expansion fluide pour une lecture détaillée.
-- **Compétences Interactives** : Section structurée par domaines (Stats, ML, DL, IA Générative) avec détails expansibles.
-- **Data-Driven** : Tout le contenu est piloté par un seul fichier de configuration : `src/data/resume-config.ts`.
-- **PDF Export** : Liens directs vers les versions PDF (FR/EN).
+## Features
 
-## Stack Technique
+- Bilingue FR/EN avec bascule instantanee.
+- UI responsive desktop/mobile.
+- Theme clair/sombre + presets de couleurs.
+- Sections experiences/projets avec details extensibles.
+- Contenu centralise en mode data-driven.
+- Export PDF FR/EN.
+- SEO statique enrichi via plugins Vite custom.
 
-- **Framework** : [React 19](https://react.dev/) + [Vite](https://vite.dev/)
-- **Langage** : [TypeScript](https://www.typescriptlang.org/) (Type-safe)
-- **Styles** : [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations** : [Framer Motion](https://www.framer.com/motion/)
+## Stack
 
-## Installation & Développement
+- React 19
+- TypeScript 5
+- Vite 7
+- Tailwind CSS 4
+- Framer Motion
 
-### 1. Installation
+## Prerequisites
+
+- Node.js 20+
+- npm 10+
+
+## Quick Start
 
 ```bash
 npm install
-```
-
-### 2. Développement local
-
-```bash
 npm run dev
 ```
 
-### 3. Build pour la production
+## Scripts
+
+- `npm run dev`: lance l'app en local.
+- `npm run lint`: verifie la qualite ESLint/TypeScript.
+- `npm run build`: build production (sortie dans `docs/`).
+- `npm run preview`: previsualise le build localement.
+
+## Qualite Avant Push
 
 ```bash
+npm run lint
 npm run build
 ```
 
-Les fichiers statiques sont générés dans le dossier `dist/`.
+## Project Structure
 
-## Structure du projet
+- `src/data/resume-config.ts`: configuration principale du CV.
+- `src/components/Resume/`: composants UI du CV.
+- `src/lib/`: i18n, theme, hooks utilitaires.
+- `build/plugins/`: plugins Vite custom (SEO, validation, detection assets).
+- `public/cv/`: PDFs source FR/EN.
+- `docs/`: site statique genere pour deployment.
 
-- `src/data/resume-config.ts` : **Le fichier central** pour modifier tout le contenu du CV.
-- `src/components/Resume/` : Ensemble des composants UI du portfolio.
-- `public/cv/` : Contient les versions PDF téléchargeables.
+## Deployment
 
----
+- GitHub Pages via workflow CI: `.github/workflows/deploy.yml`
+- Documentation detaillee: `documents/DEPLOYMENT.md`
 
-© 2026 Goua Beedi — [LinkedIn](https://linkedin.com/in/gouabeedi) · [GitHub](https://github.com/beedigoua)
+## Contributing
+
+Voir `CONTRIBUTING.md`.
+
+## Changelog
+
+Voir `CHANGELOG.md`.
+
+## License
+
+MIT - voir `LICENSE`.
+
+## Contact
+
+- LinkedIn: https://linkedin.com/in/gouabeedi
+- GitHub: https://github.com/beedigoua

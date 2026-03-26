@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useTranslation } from '../../lib/i18n'
 import { resumeConfig } from '../../data/resume-config'
-import type { Experience, Project, Education, LocalizedString } from '../../data/types'
+import type { Experience, Project, Education, SkillCategory as SkillCategoryType, SkillItem } from '../../data/types'
 import { ExperienceItem } from './ExperienceItem'
 import { ProjectItem } from './ProjectItem'
 import { EducationItem } from './EducationItem'
@@ -91,7 +91,6 @@ export function MainContent() {
                 ...experienceLabels,
                 viewDetails: resolve(labels.actions.viewDetails ?? { fr: 'Détails', en: 'Details' }),
               }}
-              resolve={resolve}
               isHighlighted={exp.isHighlighted}
             />
           ))}
@@ -150,20 +149,20 @@ export function MainContent() {
             <div className="h-px bg-resume-primary/10 flex-1" />
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-10">
-            {skills.map((category: any, i: number) => (
+            {skills.map((category: SkillCategoryType, i: number) => (
               <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
                 {category.type === 'badges' && (
                   <div className="flex flex-wrap gap-2">
-                    {category.items.map((item: any) => {
-                      const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
+                    {category.items.map((item: SkillItem) => {
+                      const techName = resolve(item.name)
                       return <TechBadge key={techName} tech={techName} color={item.color} />
                     })}
                   </div>
                 )}
                 {category.type === 'text' && (
                   <div className="flex flex-col gap-1">
-                    {category.items.some((item: any) => item.details) ? (
-                      category.items.map((item: any, j: number) => (
+                    {category.items.some((item: SkillItem) => item.details) ? (
+                      category.items.map((item: SkillItem, j: number) => (
                         <SkillTextItem
                           key={`${resolve(item.name)}-${j}`}
                           name={resolve(item.name)}
@@ -174,7 +173,7 @@ export function MainContent() {
                     ) : (
                       <p className="text-xs text-resume-text-secondary font-medium leading-relaxed">
                         {category.items
-                          .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
+                          .map((item: SkillItem) => resolve(item.name))
                           .join(' · ')}
                       </p>
                     )}
@@ -182,8 +181,8 @@ export function MainContent() {
                 )}
                 {category.type === 'languages' && (
                   <div className="flex flex-col gap-2">
-                    {category.items.map((item: any, j: number) => {
-                      const name = typeof item.name === 'string' ? item.name : resolve(item.name)
+                    {category.items.map((item: SkillItem, j: number) => {
+                      const name = resolve(item.name)
                       return (
                         <div key={`${name}-${j}`} className="flex items-center justify-between text-xs">
                           <span className="font-bold text-resume-text uppercase tracking-tight">{name}</span>

@@ -8,7 +8,7 @@ import { SidebarSection } from './SidebarSection'
 import { ContactItem } from './ContactItem'
 import { SkillCategory } from './SkillCategory'
 import { TechBadge } from './TechBadge'
-import type { LocalizedString, SkillCategory as SkillCategoryType, Hobby, ContactItem as ContactItemType } from '../../data/types'
+import type { LocalizedString, SkillCategory as SkillCategoryType, SkillItem, Hobby, ContactItem as ContactItemType } from '../../data/types'
 
 const PHOTO_ANIMATION_DURATION = 0.8
 
@@ -109,8 +109,8 @@ export function Sidebar() {
             <SkillCategory key={`${resolve(category.title)}-${i}`} title={resolve(category.title)}>
               {category.type === 'badges' && (
                 <div className="flex flex-wrap gap-1.5">
-                  {category.items.map((item: any) => {
-                    const techName = typeof item.name === 'string' ? item.name : resolve(item.name as LocalizedString)
+                  {category.items.map((item: SkillItem) => {
+                    const techName = resolve(item.name)
                     return <TechBadge key={techName} tech={techName} color={item.color} />
                   })}
                 </div>
@@ -118,14 +118,14 @@ export function Sidebar() {
               {category.type === 'text' && (
                 <p className="text-xs text-resume-text-secondary">
                   {category.items
-                    .map((item: any) => (typeof item.name === 'string' ? item.name : resolve(item.name)))
+                    .map((item: SkillItem) => resolve(item.name))
                     .join(', ')}
                 </p>
               )}
               {category.type === 'languages' && (
                 <div className="flex items-center gap-3 text-sm flex-wrap">
-                  {category.items.map((item: any, j: number) => {
-                    const name = typeof item.name === 'string' ? item.name : resolve(item.name)
+                  {category.items.map((item: SkillItem, j: number) => {
+                    const name = resolve(item.name)
                     return (
                       <span key={`${name}-${j}`} className="flex items-center gap-1">
                         <span className="text-resume-text-secondary">

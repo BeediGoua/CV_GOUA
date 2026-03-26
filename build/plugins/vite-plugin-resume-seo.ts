@@ -1,5 +1,6 @@
 import type { Plugin } from 'vite'
-import type { ResumeConfig } from './src/data/types'
+import type { ResumeConfig } from '../../src/data/types'
+import type { ThemeColors, PresetName, LocalizedString } from '../../src/data/types'
 import fs from 'fs'
 import path from 'path'
 
@@ -16,7 +17,7 @@ import path from 'path'
  */
 export function resumeSeoPlugin(): Plugin {
   let config: ResumeConfig | null = null
-  let presets: any = null
+  let presets: Record<PresetName, ThemeColors> | null = null
   let base = '/'
 
   return {
@@ -27,20 +28,20 @@ export function resumeSeoPlugin(): Plugin {
     async buildStart() {
       // Dynamically import the resume config and presets (works because Vite resolves TS)
       try {
-        const mod = await import('./src/data/resume-config')
+        const mod = await import('../../src/data/resume-config')
         config = mod.resumeConfig
-        const presetMod = await import('./src/data/presets')
+        const presetMod = await import('../../src/data/presets')
         presets = presetMod.presets
       } catch (e) {
         console.warn('[resume-seo] Could not load resume-config or presets, skipping SEO injection:', e)
       }
     },
     transformIndexHtml(html) {
-      if (!config) return html
+      if (!config || !presets) return html
 
       const defaultLang = config.languages.default
       const resolve = (ls: Record<string, string>) =>
-        (ls as any)[defaultLang] ?? Object.values(ls)[0] ?? ''
+        ls[defaultLang] ?? Object.values(ls)[0] ?? ''
 
       // 1. Build JSON-LD
       const jsonLd = buildJsonLd(config, resolve)
@@ -152,7 +153,7 @@ function buildNoscriptHtml(
   config: ResumeConfig,
   resolve: (ls: Record<string, string>) => string,
   base: string,
-  colors: any,
+  colors: ThemeColors,
 ): string {
   const { personal, contact, skills, experiences, education, projects, hobbies, pdf } = config
   const lines: string[] = []
@@ -221,7 +222,8 @@ function buildNoscriptHtml(
         lines.push(`${indent}      <p style="margin: 0; color: ${colors.primary}; font-size: 0.9rem; font-weight: 500;">${escapeHtml(exp.techs.join(', '))}</p>`)
       }
       if (exp.details?.tasks) {
-        const tasks = (exp.details.tasks as any)[config.languages.default] ?? Object.values(exp.details.tasks)[0]
+        const tasks =
+          exp.details.tasks[config.languages.default] ?? Object.values(exp.details.tasks)[0]
         if (tasks && tasks.length > 0) {
           lines.push(`${indent}      <ul style="margin: 0.5rem 0 0 1rem; padding: 0;">`)
           for (const task of tasks) {
@@ -288,7 +290,7 @@ function buildNoscriptHtml(
     pdfPath =
       typeof pdf.path === 'string'
         ? pdf.path
-        : (pdf.path as any)[lang] ?? Object.values(pdf.path)[0] ?? null
+        : (pdf.path as LocalizedString)[lang] ?? Object.values(pdf.path)[0] ?? null
   } else {
     // Auto-detect from public/cv/<lang>/
     const cvLangDir = path.resolve(process.cwd(), 'public', 'cv', lang)

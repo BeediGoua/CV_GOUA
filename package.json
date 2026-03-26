@@ -1,23 +1,23 @@
 {
-  "name": "interactive-resume-template",
+  "name": "cv-goua",
   "version": "1.0.0",
-  "description": "An open-source interactive resume template. Clone it, fill in your info, deploy it.",
-  "homepage": "https://clementbouly.github.io/interactive-resume-template/",
+  "description": "Interactive bilingual resume and portfolio built with React, TypeScript, and Vite.",
+  "homepage": "https://beedigoua.github.io/CV_GOUA/",
   "repository": {
     "type": "git",
-    "url": "https://github.com/clementbouly/interactive-resume-template.git"
+    "url": "https://github.com/beedigoua/CV_GOUA.git"
   },
   "keywords": [
     "resume",
     "cv",
-    "template",
+    "personal-branding",
     "react",
     "typescript",
     "portfolio",
     "interactive",
     "tailwindcss",
     "vite",
-    "open-source"
+    "seo"
   ],
   "license": "MIT",
   "type": "module",
