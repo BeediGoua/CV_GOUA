@@ -330,6 +330,35 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
+      id: 'retail-demand-forecasting',
+      title: {
+        fr: 'Retail Demand Forecasting & Inventory Optimization Assistant',
+        en: 'Retail Demand Forecasting & Inventory Optimization Assistant'
+      },
+      description: {
+        fr: 'Assistant IA pour la prévision de la demande et l’optimisation des stocks en grande distribution.',
+        en: 'AI assistant for demand forecasting and inventory optimization in retail.'
+      },
+      techs: ['Python', 'Pandas', 'SQL', 'Streamlit'],
+      url: 'https://github.com/BeediGoua/retail-demand-forecasting-assistant',
+      github: 'https://github.com/BeediGoua/retail-demand-forecasting-assistant',
+      details: {
+        problem: {
+          fr: `Dans la grande distribution, chaque responsable doit décider chaque semaine combien commander, en jonglant entre le risque de rupture (ventes perdues) et de surstock (coûts, pertes). Le projet s’appuie sur des données réelles d’une grande chaîne équatorienne, avec des défis comme la volatilité promotionnelle, la diversité des produits et les effets calendaires locaux. Objectif : prévoir la demande sur 8 semaines, quantifier l’incertitude et recommander la commande optimale.`,
+          en: `In retail, managers must decide weekly how much to order, balancing out-of-stock risk (lost sales) and overstock (costs, losses). The project uses real data from a major Ecuadorian supermarket chain, with challenges like promotional volatility, product diversity, and local calendar effects. Goal: forecast demand over 8 weeks, quantify uncertainty, and recommend optimal order quantity.`
+        },
+        methodology: {
+          fr: `• Pipeline ETL robuste (Python, SQL, Parquet)\n• Nettoyage, génération de grille cartésienne, agrégation hebdomadaire ISO\n• Suivi d’expériences (SQLite) : prévisions, métriques, décisions\n• Baseline hybride intelligente (Smart Routing) :\n   - Diagnostic produit (ADI, CV²)\n   - Classification Syntetos-Boylan\n   - Choix automatique de la recette (moyenne, saisonnalité, robuste)\n• Prévision probabiliste (P10, P50, P90)\n• Optimisation de la commande via logique Newsvendor (quantile selon coût économique)\n• Interface Streamlit pour visualisation et pilotage`,
+          en: `• Robust ETL pipeline (Python, SQL, Parquet)\n• Cleaning, cartesian grid generation, ISO weekly aggregation\n• Experiment tracking (SQLite): forecasts, metrics, decisions\n• Smart hybrid baseline (Smart Routing):\n   - Product diagnostics (ADI, CV²)\n   - Syntetos-Boylan classification\n   - Automatic recipe selection (mean, seasonality, robust)\n• Probabilistic forecasting (P10, P50, P90)\n• Order optimization via Newsvendor logic (quantile based on economic cost)\n• Streamlit interface for visualization and management`
+        },
+        validation: {
+          fr: `• WAPE < 8% sur la baseline\n• Robustesse sur produits rares et volatils\n• Visualisation des décisions et des incertitudes\n• Documentation et scripts reproductibles` ,
+          en: `• WAPE < 8% on baseline\n• Robustness on rare and volatile products\n• Visualization of decisions and uncertainties\n• Documentation and reproducible scripts`
+        },
+        tools: ['Python', 'Pandas', 'SQL', 'Streamlit']
+      }
+    },
+    {
       id: 'etl-pipeline',
       title: { fr: 'Pipeline ETL — Job Market Intelligence', en: 'ETL Pipeline — Job Market Intelligence' },
       description: {
