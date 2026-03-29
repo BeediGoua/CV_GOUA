@@ -277,28 +277,33 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
-      id: 'document-ai-pipeline',
-      title: { fr: 'Document AI Pipeline — Classification et extraction de documents d\'identité', en: 'Document AI Pipeline — Identity Document Classification & Extraction' },
-      description: {
-        fr: 'Pipeline d’évaluation de la cohérence factuelle des résumés.',
-        en: 'Evaluation pipeline for factual consistency in summaries.',
+      id: 'insurance-recommender-zimnat',
+      title: {
+        fr: 'Système de Recommandation d\'Assurance (Zimnat)',
+        en: 'Insurance Recommendation System (Zimnat)'
       },
-      techs: ['RAG', 'LLM-as-judge', 'Embeddings'],
+      description: {
+        fr: 'Approche hybride (Machine Learning + Règles Statistiques) pour optimiser le cross-sell dans l\'assurance.',
+        en: 'Hybrid approach (Machine Learning + Statistical Rules) to optimize cross-sell in insurance.'
+      },
+      techs: ['Python', 'CatBoost', 'Streamlit'],
       details: {
         problem: {
-          fr: 'Les modèles génératifs produisent souvent des faits erronés dans les résumés.',
-          en: 'Generative models often produce erroneous facts in summaries.',
+          fr: `Le client Zimnat (Zimbabwe) souhaitait améliorer la recommandation de produits d\'assurance pour éviter les sollicitations inutiles et augmenter la fidélité. Objectif : passer du mass marketing au precision marketing, augmenter le cross-sell, et réduire le churn.`,
+          en: `Zimnat (Zimbabwe) wanted to improve insurance product recommendations to avoid redundant offers and increase customer loyalty. Goal: shift from mass marketing to precision marketing, boost cross-sell, and reduce churn.`
         },
         methodology: {
-          fr: '• Scoring par similarité d’embeddings\n• Évaluation par LLM-as-judge\n• Validation par retrieval-grounding',
-          en: '• Embedding similarity scoring\n• LLM-as-judge evaluation\n• Retrieval-grounded validation',
+          fr: `• Architecture hybride :\n   - Moteur 1 : Baseline statistique (probabilités conditionnelles, mémoire collective)\n   - Moteur 2 : CatBoost (gradient boosting, personnalisation fine)\n• Sécurité anti-cheat : jamais recommander un produit déjà détenu\n• Application Streamlit avec 5 modules :\n   1. Tableau de bord exécutif\n   2. Business Insights (stratégie)\n   3. Client Inspector (terrain)\n   4. Market Simulator (laboratoire)\n   5. Methodology (transparence, validation Leave-One-Out)`,
+          en: `• Hybrid architecture:\n   - Engine 1: Statistical baseline (conditional probabilities, collective memory)\n   - Engine 2: CatBoost (gradient boosting, fine personalization)\n• Anti-cheat rule: never recommend an already owned product\n• Streamlit app with 5 modules:\n   1. Executive dashboard\n   2. Business Insights (strategy)\n   3. Client Inspector (field)\n   4. Market Simulator (lab)\n   5. Methodology (transparency, Leave-One-Out validation)`
         },
         validation: {
-          fr: '• Réduction des cas d’hallucination non détectés\n• Fiabilité accrue des réponses',
-          en: '• Reduced undetected hallucination cases\n• Increased answer reliability',
+          fr: `• Déploiement en production chez Zimnat\n• Hausse du taux de cross-sell\n• KPI Hit@1, Top-3, analyse des segments\n• Application utilisée par les agents et le management` ,
+          en: `• Deployed in production at Zimnat\n• Increased cross-sell rate\n• KPI Hit@1, Top-3, segment analysis\n• App used by agents and management`
         },
-        tools: ['Python', 'OpenAI API', 'Vector DB'],
+        tools: ['Python', 'CatBoost', 'Streamlit']
       },
+      url: '',
+      github: '',
     },
     {
       id: 'document-ai-pipeline',
@@ -346,30 +351,6 @@ export const resumeConfig: ResumeConfig = {
           en: '• Data quality checks\n• Robust incremental loads',
         },
         tools: ['PostgreSQL', 'Python', 'Docker'],
-      },
-    },
-    {
-      id: 'llm-hallucination',
-      title: { fr: 'LLM Hallucination Detection', en: 'LLM Hallucination Detection' },
-      description: {
-        fr: "Pipeline d'évaluation de la cohérence factuelle des résumés.",
-        en: 'Evaluation pipeline for factual consistency in summaries.',
-      },
-      techs: ['RAG', 'LLM-as-judge', 'Embeddings'],
-      details: {
-        problem: {
-          fr: 'Les modèles génératifs produisent souvent des faits erronés dans les résumés.',
-          en: 'Generative models often produce erroneous facts in summaries.',
-        },
-        methodology: {
-          fr: "• Scoring par similarité d'embeddings\n• Évaluation par LLM-as-judge\n• Validation par retrieval-grounding",
-          en: '• Embedding similarity scoring\n• LLM-as-judge evaluation\n• Retrieval-grounded validation',
-        },
-        validation: {
-          fr: "• Réduction des cas d'hallucination non détectés\n• Fiabilité accrue des réponses",
-          en: '• Reduced undetected hallucination cases\n• Increased answer reliability',
-        },
-        tools: ['Python', 'OpenAI API', 'Vector DB'],
       },
     },
     {
