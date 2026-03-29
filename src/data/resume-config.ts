@@ -279,17 +279,17 @@ export const resumeConfig: ResumeConfig = {
     {
       id: 'insurance-recommender-zimnat',
       title: {
-        fr: 'Système de Recommandation d\'Assurance (Zimnat)',
+        fr: 'Système de Recommandation d’Assurance (Zimnat)',
         en: 'Insurance Recommendation System (Zimnat)'
       },
       description: {
-        fr: 'Approche hybride (Machine Learning + Règles Statistiques) pour optimiser le cross-sell dans l\'assurance.',
+        fr: 'Approche hybride (Machine Learning + Règles Statistiques) pour optimiser le cross-sell dans l’assurance.',
         en: 'Hybrid approach (Machine Learning + Statistical Rules) to optimize cross-sell in insurance.'
       },
       techs: ['Python', 'CatBoost', 'Streamlit'],
       details: {
         problem: {
-          fr: `Le client Zimnat (Zimbabwe) souhaitait améliorer la recommandation de produits d\'assurance pour éviter les sollicitations inutiles et augmenter la fidélité. Objectif : passer du mass marketing au precision marketing, augmenter le cross-sell, et réduire le churn.`,
+          fr: `Le client Zimnat (Zimbabwe) souhaitait améliorer la recommandation de produits d’assurance pour éviter les sollicitations inutiles et augmenter la fidélité. Objectif : passer du mass marketing au precision marketing, augmenter le cross-sell, et réduire le churn.`,
           en: `Zimnat (Zimbabwe) wanted to improve insurance product recommendations to avoid redundant offers and increase customer loyalty. Goal: shift from mass marketing to precision marketing, boost cross-sell, and reduce churn.`
         },
         methodology: {
@@ -369,12 +369,10 @@ export const resumeConfig: ResumeConfig = {
       school: { fr: 'ENSAI', en: 'ENSAI' },
       degree: { fr: 'Diplôme d’ingénieur en Data Science et IA', en: 'Engineering Degree in Data Science and AI' },
       specialty: { fr: 'Machine Learning, NLP et Big Data', en: 'Machine Learning, NLP and Big Data' },
-      period: '2022 – 2025',
     },
     {
       school: { fr: 'Classes Préparatoires', en: 'Preparatory Classes' },
       degree: { fr: 'Mathématiques, Physique & Sciences de l’Ingénieur', en: 'Mathematics, Physics & Engineering Sciences' },
-      period: '2020 – 2022',
     },
   ],
 
