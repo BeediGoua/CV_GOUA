@@ -10,8 +10,8 @@ export const resumeConfig: ResumeConfig = {
       en: 'Data Scientist',
     },
     profile: {
-      fr: "Diplômé de l’ENSAI, j’ai travaillé sur la conception de pipelines data/ML et de systèmes d’évaluation de modèles, notamment en IA générative. Je souhaite évoluer en tant que Data Scientist sur des projets d’IA appliquée, avec une attention particulière à la robustesse, à l’évaluation et à la fiabilité des résultats.",
-      en: "Graduate of ENSAI, I have worked on designing data/ML pipelines and model evaluation systems, particularly in generative AI. I aim to evolve as a Data Scientist on applied AI projects with a focus on robustness, evaluation and reliability of results."
+      fr: "Élève ingénieur à l’ENSAI en statistiques et data science, j’ai travaillé sur des problématiques de scoring, de modélisation du risque, d’évaluation quantitative des modèles et d’aide à la décision. Je m’intéresse particulièrement à la modélisation statistique, à l’analyse de l’incertitude et à la fiabilité des modèles.",
+      en: "Engineering student at ENSAI in statistics and data science, I have worked on scoring, risk modeling, quantitative model evaluation, and decision support. I am particularly interested in statistical modeling, uncertainty analysis, and model reliability."
     },
     location: 'Paris, France',
   },
@@ -19,8 +19,7 @@ export const resumeConfig: ResumeConfig = {
   // ===== SEO =====
   seo: {
     title: 'Goua Beedi — Data Scientist',
-    description:
-      'CV interactif de Goua Beedi, Data Scientist spécialisé en IA Générative, Ingénierie des données et évaluation de modèles.',
+    description: 'Goua Beedi — Data Scientist (ENSAI).',
   },
 
   // ===== LANGUES =====
@@ -35,7 +34,7 @@ export const resumeConfig: ResumeConfig = {
 
   // ===== CONTACT =====
   contact: [
-    { type: 'website', label: { fr: 'beedigoua.github.io/CV_GOUA', en: 'beedigoua.github.io/CV_GOUA' }, href: 'https://beedigoua.github.io/CV_GOUA/' },
+    { type: 'website', label: { fr: 'beedigoua.github.io', en: 'beedigoua.github.io' }, href: 'https://beedigoua.github.io/CV_GOUA/' },
     { type: 'github', label: { fr: 'beedigoua', en: 'beedigoua' }, href: 'https://github.com/beedigoua' },
     { type: 'linkedin', label: { fr: 'Goua Beedi', en: 'Goua Beedi' }, href: 'https://linkedin.com/in/gouabeedi' },
     { type: 'email', label: { fr: 'gouabeedi@gmail.com', en: 'gouabeedi@gmail.com' } },
@@ -61,15 +60,15 @@ export const resumeConfig: ResumeConfig = {
         {
           name: { fr: 'Statistiques inférentielles & modélisation', en: 'Inferential Statistics & Modeling' },
           details: {
-            fr: 'Tests d’hypothèses & intervalles de confiance, régression linéaire & logistique, sélection de variables & validation croisée',
-            en: 'Hypothesis testing & confidence intervals, linear & logistic regression, variable selection & cross-validation'
+            fr: 'Tests d’hypothèses & intervalles de confiance, régression linéaire & logistique, sélection de variables, validation croisée, chaînes de Markov, analyse de survie, économétrie, calibration',
+            en: 'Hypothesis testing & confidence intervals, linear & logistic regression, variable selection, cross-validation, Markov chains, survival analysis, econometrics, calibration'
           },
         },
         {
           name: { fr: 'Machine Learning & séries temporelles', en: 'Machine Learning & Time Series' },
           details: {
-            fr: 'Arbres, Random Forest, Gradient Boosting (XGBoost), Feature engineering, ARIMA & prévision multi-séries, métriques : AUC, Gini, RMSE',
-            en: 'Trees, Random Forest, Gradient Boosting (XGBoost), Feature engineering, ARIMA & multi-series forecasting, metrics: AUC, Gini, RMSE'
+            fr: 'Apprentissage supervisé et non supervisé, Random Forest, Gradient Boosting (XGBoost), Feature engineering, ARIMA, métriques : AUC, Gini, RMSE, évaluation et robustesse des modèles',
+            en: 'Supervised and unsupervised learning, Random Forest, Gradient Boosting (XGBoost), Feature engineering, ARIMA, metrics: AUC, Gini, RMSE, model evaluation and robustness'
           },
         },
         {
@@ -86,9 +85,9 @@ export const resumeConfig: ResumeConfig = {
       type: 'badges',
       items: [
         { name: { fr: 'ETL/ELT', en: 'ETL/ELT' } },
-        { name: { fr: 'PostgreSQL', en: 'PostgreSQL' } },
-        { name: { fr: 'Qualité des données', en: 'Data Quality' } },
-        { name: { fr: 'Ingestion multi-sources', en: 'Multi-source Ingestion' } },
+        { name: { fr: 'PostgreSQL / NoSQL', en: 'PostgreSQL / NoSQL' } },
+        { name: { fr: 'Cloud Computing', en: 'Cloud Computing' } },
+        { name: { fr: 'Traitement distribué', en: 'Distributed Computing' } },
       ],
     },
     {
@@ -141,6 +140,44 @@ export const resumeConfig: ResumeConfig = {
 
   // ===== EXPÉRIENCES PROFESSIONNELLES =====
   experiences: [
+    {
+      id: 'finzuu',
+      company: { fr: 'FINZUU', en: 'FINZUU' },
+      role: { fr: 'Data Scientist', en: 'Data Scientist' },
+      type: { fr: 'Projet', en: 'Project' },
+      period: { fr: '2026', en: '2026' },
+      description: {
+        fr: 'Conception d’un moteur de scoring agricole multi-pays pour l’aide à la décision.',
+        en: 'Design of a multi-country agricultural scoring engine for decision support.',
+      },
+      techs: ['Python', 'FastAPI', 'SQL', 'Scoring', 'Dashboarding'],
+      details: {
+        context: {
+          fr: 'Projet de scoring agricole.',
+          en: 'Agricultural scoring project.',
+        },
+        tasks: {
+          fr: [
+            'Conception d’un moteur de scoring agricole pour estimer la production, les revenus, le risque agricole et la capacité de remboursement des agriculteurs.',
+            'Construction de variables et de règles de scoring à partir de données agricoles multi-pays.',
+            'Intégration d’indicateurs et d’alertes explicables dans une API FastAPI et un dashboard.'
+          ],
+          en: [
+            'Design of an agricultural scoring engine to estimate production, revenues, agricultural risk, and farmers\' repayment capacity.',
+            'Construction of variables and scoring rules from multi-country agricultural data.',
+            'Integration of explainable indicators and alerts into a FastAPI and dashboard.'
+          ],
+        },
+        impact: {
+          fr: '• Outil d’évaluation du risque opérationnel\n• Déploiement via FastAPI et Dashboard',
+          en: '• Operational risk evaluation tool\n• Deployment via FastAPI and Dashboard',
+        },
+        env: {
+          fr: 'Python / FastAPI / Data Analysis / Dashboarding',
+          en: 'Python / FastAPI / Data Analysis / Dashboarding',
+        },
+      },
+    },
     {
       id: 'square-management',
       company: { fr: 'Square Management — Square Research Center', en: 'Square Management — Square Research Center' },
@@ -230,7 +267,7 @@ export const resumeConfig: ResumeConfig = {
   projects: [
     {
       id: 'credit-scoring',
-      title: { fr: 'Credit Scoring — Modèle de risque à horizon 12 mois', en: 'Credit Scoring — 12-Month Risk Model' },
+      title: { fr: 'Credit Scoring — Évaluation du risque de défaut (Banque LCL)', en: 'Credit Scoring — Default Risk Evaluation (LCL Bank)' },
       description: {
         fr: 'Modèle de scoring sur 530 000 comptes. AUC=0,78 ; Gini=0,57.',
         en: 'Scoring model on 530,000 accounts. AUC=0.78; Gini=0.57.',
@@ -253,29 +290,54 @@ export const resumeConfig: ResumeConfig = {
       },
     },
     {
-      id: 'brokerflow-ai',
-      title: { fr: 'BrokerFlow AI — Système de décision de crédit', en: 'BrokerFlow AI — Credit Underwriting Decision System' },
+      id: 'hopital-pompidou',
+      title: { fr: 'Analyse des parcours de soins post-Covid — Hôpital Georges Pompidou', en: 'Post-Covid Care Pathway Analysis — Georges Pompidou Hospital' },
       description: {
-        fr: 'Pipeline d’ingestion multi‑sources avec architecture Bronze/Silver/Gold.',
-        en: 'Multi-source ingestion pipeline with Bronze/Silver/Gold architecture.',
+        fr: 'Modélisation du risque de réhospitalisation via l’analyse de survie.',
+        en: 'Modeling of rehospitalization risk via survival analysis.',
       },
-      techs: ['PostgreSQL', 'Python', 'Docker', 'ETL'],
+      techs: ['R', 'Python', 'Analyse de survie', 'Modèle de Cox'],
       details: {
         problem: {
-          fr: 'Besoin d’agréger des offres d’emploi hétérogènes pour analyser les compétences.',
-          en: 'Aggregating heterogeneous job offers to analyze skill trends.',
+          fr: 'Identifier différents profils de patients à risque suite au Covid.',
+          en: 'Identify different profiles of at-risk patients following Covid.',
         },
         methodology: {
-          fr: '• Architecture Bronze / Silver / Gold\n• Déduplication inter-sources\n• Historisation SCD2',
-          en: '• Bronze / Silver / Gold architecture\n• Cross-source deduplication\n• SCD2 historization',
+          fr: '• Analyse de données longitudinales de santé\n• Utilisation d’un modèle de survie de Cox',
+          en: '• Analysis of longitudinal health data\n• Use of a Cox survival model',
         },
         validation: {
-          fr: '• Checks de qualité des données\n• Chargements incrémentaux robustes',
-          en: '• Data quality checks\n• Robust incremental loads',
+          fr: '• Modélisation du risque de réhospitalisation\n• Collaboration avec des chercheurs hospitaliers',
+          en: '• Modeling of rehospitalization risk\n• Collaboration with hospital researchers',
         },
-        tools: ['PostgreSQL', 'Python', 'Docker'],
+        tools: ['R', 'Modèle de Cox', 'Analyse de survie'],
       },
     },
+    {
+      id: 'zindi-risk-scoring',
+      title: { fr: 'Système d’aide à la décision pour l’évaluation du risque — Compétition Zindi', en: 'Decision Support System for Risk Evaluation — Zindi Competition' },
+      description: {
+        fr: 'Système combinant scoring ML et règles métier face aux données incomplètes.',
+        en: 'System combining ML scoring and business rules handling incomplete data.',
+      },
+      techs: ['Python', 'Machine Learning', 'Data Imputation'],
+      details: {
+        problem: {
+          fr: 'Évaluer le risque avec des données incomplètes et améliorer la fiabilité des décisions.',
+          en: 'Evaluate risk with incomplete data and improve decision reliability.',
+        },
+        methodology: {
+          fr: '• Combinaison de scoring ML et règles métier\n• Construction de variables robustes\n• Développement de mécanismes de contrôle de cohérence',
+          en: '• Combination of ML scoring and business rules\n• Construction of robust variables\n• Development of consistency control mechanisms',
+        },
+        validation: {
+          fr: '• Robustesse accrue face aux valeurs manquantes\n• Critères d’évaluation de la fiabilité des décisions',
+          en: '• Increased robustness against missing values\n• Evaluation criteria for decision reliability',
+        },
+        tools: ['Python', 'Feature Engineering', 'Scoring Rules'],
+      },
+    },
+
     {
       id: 'insurance-recommender-zimnat',
       title: {
@@ -305,30 +367,7 @@ export const resumeConfig: ResumeConfig = {
       url: '',
       github: '',
     },
-    {
-      id: 'document-ai-pipeline',
-      title: { fr: 'Document AI Pipeline — Classification et extraction de documents d\'identité', en: 'Document AI Pipeline — Identity Document Classification & Extraction' },
-      description: {
-        fr: 'Pipeline modulaire pour classifier et extraire les informations structurées de documents d\'identité (PDF/images).',
-        en: 'Modular pipeline to identify and extract structured information from identity documents (ID card, passport, driver license).',
-      },
-      techs: ['Python', 'OCR', 'Computer Vision', 'PyTorch', 'FastAPI'],
-      details: {
-        problem: {
-          fr: 'Extraire automatiquement les informations d\'identité à partir de documents variés et de qualités différentes.',
-          en: 'Automatically extract identity information from diverse document types and variable image quality.',
-        },
-        methodology: {
-          fr: '• Classification de type de document (Carte d\'identité, Passeport, Permis, etc.)\n• OCR avec normalisation\n• Parsing de zones de lecture machine (MRZ)\n• Architecture modulaire et réutilisable',
-          en: '• Document type classification (ID card, passport, driver license, etc.)\n• Optical Character Recognition (OCR) with normalization\n• Machine Readable Zone (MRZ) parsing\n• Modular and reusable architecture',
-        },
-        validation: {
-          fr: '• Taux de reconnaissance élevé multilingue\n• Extraction structurée fiable\n• Robustesse aux variations de numérisation',
-          en: '• High multilingual recognition accuracy\n• Reliable structured data extraction\n• Robustness to scanning variations',
-        },
-        tools: ['Python', 'PyTorch', 'OpenCV', 'Tesseract OCR', 'FastAPI'],
-      },
-    },
+
     {
       id: 'retail-demand-forecasting',
       title: {
@@ -358,17 +397,18 @@ export const resumeConfig: ResumeConfig = {
         tools: ['Python', 'Pandas', 'SQL', 'Streamlit']
       }
     },
+
     {
-      id: 'etl-pipeline',
-      title: { fr: 'Pipeline ETL — Job Market Intelligence', en: 'ETL Pipeline — Job Market Intelligence' },
+      id: 'brokerflow-ai',
+      title: { fr: 'BrokerFlow AI — Système de décision de crédit', en: 'BrokerFlow AI — Credit Underwriting Decision System' },
       description: {
-        fr: "Pipeline d'ingestion multi‑sources avec architecture Bronze/Silver/Gold.",
+        fr: 'Pipeline d’ingestion multi‑sources avec architecture Bronze/Silver/Gold.',
         en: 'Multi-source ingestion pipeline with Bronze/Silver/Gold architecture.',
       },
       techs: ['PostgreSQL', 'Python', 'Docker', 'ETL'],
       details: {
         problem: {
-          fr: "Besoin d'agréger des offres d'emploi hétérogènes pour analyser les compétences.",
+          fr: 'Besoin d’agréger des offres d’emploi hétérogènes pour analyser les compétences.',
           en: 'Aggregating heterogeneous job offers to analyze skill trends.',
         },
         methodology: {
@@ -380,6 +420,30 @@ export const resumeConfig: ResumeConfig = {
           en: '• Data quality checks\n• Robust incremental loads',
         },
         tools: ['PostgreSQL', 'Python', 'Docker'],
+      },
+    },
+    {
+      id: 'document-ai-pipeline',
+      title: { fr: 'Document AI Pipeline — Classification et extraction de documents d\'identité', en: 'Document AI Pipeline — Identity Document Classification & Extraction' },
+      description: {
+        fr: 'Pipeline modulaire pour classifier et extraire les informations structurées de documents d\'identité (PDF/images).',
+        en: 'Modular pipeline to identify and extract structured information from identity documents (ID card, passport, driver license).',
+      },
+      techs: ['Python', 'OCR', 'Computer Vision', 'PyTorch', 'FastAPI'],
+      details: {
+        problem: {
+          fr: 'Extraire automatiquement les informations d\'identité à partir de documents variés et de qualités différentes.',
+          en: 'Automatically extract identity information from diverse document types and variable image quality.',
+        },
+        methodology: {
+          fr: '• Classification de type de document (Carte d\'identité, Passeport, Permis, etc.)\n• OCR avec normalisation\n• Parsing de zones de lecture machine (MRZ)\n• Architecture modulaire et réutilisable',
+          en: '• Document type classification (ID card, passport, driver license, etc.)\n• Optical Character Recognition (OCR) with normalization\n• Machine Readable Zone (MRZ) parsing\n• Modular and reusable architecture',
+        },
+        validation: {
+          fr: '• Taux de reconnaissance élevé multilingue\n• Extraction structurée fiable\n• Robustesse aux variations de numérisation',
+          en: '• High multilingual recognition accuracy\n• Reliable structured data extraction\n• Robustness to scanning variations',
+        },
+        tools: ['Python', 'PyTorch', 'OpenCV', 'Tesseract OCR', 'FastAPI'],
       },
     },
     {
@@ -396,7 +460,7 @@ export const resumeConfig: ResumeConfig = {
   education: [
     {
       school: { fr: 'ENSAI', en: 'ENSAI' },
-      degree: { fr: 'Diplôme d’ingénieur en Data Science et IA', en: 'Engineering Degree in Data Science and AI' },
+      degree: { fr: 'Diplôme d’ingénieur en Statistiques et Data Science', en: 'Engineering Degree in Statistics and Data Science' },
       specialty: { fr: 'Machine Learning, NLP et Big Data', en: 'Machine Learning, NLP and Big Data' },
     },
     {
