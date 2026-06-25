@@ -359,7 +359,7 @@ export const resumeConfig: ResumeConfig = {
           en: `• Hybrid architecture:\n   - Engine 1: Statistical baseline (conditional probabilities, collective memory)\n   - Engine 2: CatBoost (gradient boosting, fine personalization)\n• Anti-cheat rule: never recommend an already owned product\n• Streamlit app with 5 modules:\n   1. Executive dashboard\n   2. Business Insights (strategy)\n   3. Client Inspector (field)\n   4. Market Simulator (lab)\n   5. Methodology (transparency, Leave-One-Out validation)`
         },
         validation: {
-          fr: `• Déploiement en production chez Zimnat\n• Hausse du taux de cross-sell\n• KPI Hit@1, Top-3, analyse des segments\n• Application utilisée par les agents et le management` ,
+          fr: `• Déploiement en production chez Zimnat\n• Hausse du taux de cross-sell\n• KPI Hit@1, Top-3, analyse des segments\n• Application utilisée par les agents et le management`,
           en: `• Deployed in production at Zimnat\n• Increased cross-sell rate\n• KPI Hit@1, Top-3, segment analysis\n• App used by agents and management`
         },
         tools: ['Python', 'CatBoost', 'Streamlit']
@@ -391,7 +391,7 @@ export const resumeConfig: ResumeConfig = {
           en: `• Robust ETL pipeline (Python, SQL, Parquet)\n• Cleaning, cartesian grid generation, ISO weekly aggregation\n• Experiment tracking (SQLite): forecasts, metrics, decisions\n• Smart hybrid baseline (Smart Routing):\n   - Product diagnostics (ADI, CV²)\n   - Syntetos-Boylan classification\n   - Automatic recipe selection (mean, seasonality, robust)\n• Probabilistic forecasting (P10, P50, P90)\n• Order optimization via Newsvendor logic (quantile based on economic cost)\n• Streamlit interface for visualization and management`
         },
         validation: {
-          fr: `• WAPE < 8% sur la baseline\n• Robustesse sur produits rares et volatils\n• Visualisation des décisions et des incertitudes\n• Documentation et scripts reproductibles` ,
+          fr: `• WAPE < 8% sur la baseline\n• Robustesse sur produits rares et volatils\n• Visualisation des décisions et des incertitudes\n• Documentation et scripts reproductibles`,
           en: `• WAPE < 8% on baseline\n• Robustness on rare and volatile products\n• Visualization of decisions and uncertainties\n• Documentation and reproducible scripts`
         },
         tools: ['Python', 'Pandas', 'SQL', 'Streamlit']
